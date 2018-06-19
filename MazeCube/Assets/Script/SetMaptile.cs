@@ -13,6 +13,7 @@ public class SetMaptile : MonoBehaviour
 
     //マップチップテキスト
     public string[] texts;
+
 	void Start ()
     {
         //テキスト用のアセットを追加する
