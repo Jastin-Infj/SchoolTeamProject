@@ -1,0 +1,4 @@
+01_Neutral	90
+02_Walk		40
+03_Jump		50
+04_Run		30
