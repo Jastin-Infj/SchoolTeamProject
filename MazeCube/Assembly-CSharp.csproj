@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\CameraController.cs" />
+    <Compile Include="Assets\Script\Jump.cs" />
     <Compile Include="Assets\Script\PlayerCont.cs" />
     <Compile Include="Assets\Script\SetMaptile.cs" />
     <None Include="Assets\Resources\idle\Motion\MotionFrame.txt" />

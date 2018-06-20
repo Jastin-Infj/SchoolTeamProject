@@ -9,38 +9,90 @@ public class PlayerCont : MonoBehaviour {
 
     public float movementSpeed; //ユニティ側で進む速度を指定
     public float jumpPower; //ユニティ側で上方向に進む速度を指定
+    public float Dash;
+    private float addSpeed; //減加速
+    private bool flag;
+    private int tim;
     // Use this for initialization
     void Start()
     {
-
+        addSpeed =0;
+        flag = false;
+        tim = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W)) //wキーで前に進む
+        if (flag == true)
+        if (Input.GetButtonDown("Fire5"))//Aキーでダッシュ
         {
-            transform.position += transform.forward * movementSpeed;
+            addSpeed = Dash;
         }
-        if (Input.GetKey(KeyCode.S)) //sキーで後ろに進む
+        else if(Input.GetButtonUp("Fire5"))
         {
-            transform.position -= transform.forward * movementSpeed;
+            addSpeed = 0;
         }
-        if (Input.GetKey(KeyCode.D)) //dキーで右に進む
+
+      if(Input.GetAxisRaw("Horizontal")<0)//前に進む
         {
-            transform.position += transform.right * movementSpeed;
+            transform.Rotate(new Vector3(0, 0, 0));
+            transform.position += transform.forward * (movementSpeed + addSpeed);
         }
-        if (Input.GetKey(KeyCode.A)) //aキーで左に進む
+       else if ( 0<Input.GetAxisRaw("Horizontal"))
         {
-            transform.position -= transform.right * movementSpeed;
+            transform.position -= transform.forward * (movementSpeed + addSpeed);
+            //transform.Rotate(new Vector3(180, 0, 0));
         }
-        //if (Input.GetKey(KeyCode.Space)) //スペースを押している間上方向へに進む
+        if ( Input.GetAxis("Vertical")<0)
+        {
+           
+            transform.position -= transform.up * (movementSpeed + addSpeed);
+            //transform.Rotate(new Vector3(90, 0, 0));
+        }
+        else if (0<Input.GetAxis("Vertical") )
+        {
+            transform.position += transform.up * (movementSpeed + addSpeed);
+
+        }
+        //if (Input.GetKey(KeyCode.W)) //wキーで前に進む
         //{
-        //    transform.position += transform.up * jumpPower;
+        //    transform.position += transform.up * (movementSpeed+addSpeed);
         //}
-        if (Input.GetKey(KeyCode.Z)) //Zを押すとプレイヤが1度ずつ回転
+        //if (Input.GetKey(KeyCode.S)) //sキーで後ろに進む
+        //{
+        //    transform.position -= transform.up * (movementSpeed + addSpeed);
+        //}
+        //if (Input.GetKey(KeyCode.A)) //Aキーで左に進む
+        //{
+        //    transform.position += transform.forward * (movementSpeed + addSpeed);
+        //}
+        //if (Input.GetKey(KeyCode.D)) //sキーで右に進む
+        //{
+        //    transform.position -= transform.forward * (movementSpeed + addSpeed);
+        //}
+
+        if (Input.GetButtonDown("Fire4")) 
         {
-            transform.Rotate(new Vector3(0, 0, 1));
+            transform.position -= transform.right * (jumpPower);
         }
+        if (Input.GetButtonDown("Fire3"))
+        {
+            flag = true;
+        }
+        if(tim<60)
+        {
+           
+                transform.position -= transform.right * (jumpPower);
+        }
+        else
+        {
+            tim =0;
+            flag = false;
+        }
+        //if (Input.GetKey(KeyCode.F)) //Fを押すとプレイヤが1度ずつ回転
+        //{
+        //    transform.Rotate(new Vector3(1, 0, 0));
+        //}
     }
 }
