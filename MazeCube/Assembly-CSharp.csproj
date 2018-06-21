@@ -65,6 +65,7 @@
     <Compile Include="Assets\Script\Jump.cs" />
     <Compile Include="Assets\Script\PlayerCont.cs" />
     <Compile Include="Assets\Script\SetMaptile.cs" />
+    <Compile Include="Assets\Script\SetTime.cs" />
     <None Include="Assets\Resources\idle\Motion\MotionFrame.txt" />
     <None Include="Assets\Script\Readme.txt" />
     <Reference Include="UnityEditor.StandardEvents">
