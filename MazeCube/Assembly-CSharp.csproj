@@ -64,6 +64,8 @@
     <Compile Include="Assets\Script\ButtonCheck.cs" />
     <Compile Include="Assets\Script\CameraController.cs" />
     <Compile Include="Assets\Script\Jump.cs" />
+    <Compile Include="Assets\Script\MapCameraPos.cs" />
+    <Compile Include="Assets\Script\MapCheckHit.cs" />
     <Compile Include="Assets\Script\PlayerCont.cs" />
     <Compile Include="Assets\Script\SetMaptile.cs" />
     <Compile Include="Assets\Script\SetTime.cs" />
