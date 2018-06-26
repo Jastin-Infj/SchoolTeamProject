@@ -65,10 +65,13 @@
     <Compile Include="Assets\Script\CameraController.cs" />
     <Compile Include="Assets\Script\Jump.cs" />
     <Compile Include="Assets\Script\MapCameraPos.cs" />
+    <Compile Include="Assets\Script\NearWall.cs" />
     <Compile Include="Assets\Script\PlayerCont.cs" />
+    <Compile Include="Assets\Script\Rotation.cs" />
     <Compile Include="Assets\Script\SelectBigScale.cs" />
     <Compile Include="Assets\Script\SetMaptile.cs" />
     <Compile Include="Assets\Script\SetTime.cs" />
+    <Compile Include="Assets\Script\toMapStage.cs" />
     <Compile Include="Assets\Script\ToTitle.cs" />
     <None Include="Assets\Resources\idle\Motion\MotionFrame.txt" />
     <None Include="Assets\Script\Readme.txt" />

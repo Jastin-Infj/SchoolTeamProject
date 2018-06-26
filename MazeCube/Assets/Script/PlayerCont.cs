@@ -44,27 +44,32 @@ public class PlayerCont : MonoBehaviour {
                 addSpeed = 0;
             }
 
-        //if (Input.GetAxisRaw("Horizontal") < 0)//前に進む
-        //{
-        //    transform.Rotate(new Vector3(0, 0, 0));
-        //    transform.position += transform.forward * (movementSpeed + addSpeed);
-        //}
-        //else if (0 < Input.GetAxisRaw("Horizontal"))
-        //{
-        //    transform.position -= transform.forward * (movementSpeed + addSpeed);
-        //    //transform.Rotate(new Vector3(180, 0, 0));
-        //}
-        //if (Input.GetAxis("Vertical") < 0)
-        //{
+        if (Input.GetAxisRaw("Horizontal") < 0)//   lに進む
+        {
+            transform.Rotate(new Vector3(0, 0, 0));
+            transform.position -= transform.right * (movementSpeed + addSpeed);
+            //transform.position += transform.forward * (movementSpeed + addSpeed);
+        }
+        else if (0 < Input.GetAxisRaw("Horizontal"))
+        {
+            transform.position += transform.right * (movementSpeed + addSpeed);
+            //transform.position -= transform.forward * (movementSpeed + addSpeed);
+            //transform.Rotate(new Vector3(0, 0, 1));
+        }
+        if (Input.GetAxis("Vertical") < 0)//s
+        {
+            //transform.position += transform.up * (movementSpeed + addSpeed);
+            //transform.position -= transform.forward * (movementSpeed + addSpeed);
+            transform.position += transform.up * (movementSpeed + addSpeed);
+            //transform.Rotate(new Vector3(90, 0, 0));
+        }
+        else if (0 < Input.GetAxis("Vertical"))//m
+        {
+            transform.position -= transform.up * (movementSpeed + addSpeed);
 
-        //    transform.position -= transform.up * (movementSpeed + addSpeed);
-        //    //transform.Rotate(new Vector3(90, 0, 0));
-        //}
-        //else if (0 < Input.GetAxis("Vertical"))
-        //{
-        //    transform.position += transform.up * (movementSpeed + addSpeed);
+            //transform.position -= transform.right * (movementSpeed + addSpeed);
 
-        //}
+        }
         if (Input.GetKey(KeyCode.W)) //wキーで前に進む
         {
             transform.position += transform.up * (movementSpeed + addSpeed);
@@ -92,34 +97,34 @@ public class PlayerCont : MonoBehaviour {
         //{ //地面についていて
             if (Input.GetKeyDown(KeyCode.JoystickButton2) || Input.GetKeyDown(KeyCode.Z))
             {//Zキーを押すと
-                transform.position -= transform.right * (jumpPower);
-            }
+             //transform.position -= transform.right * (jumpPower);
+            transform.position += transform.forward * (jumpPower);
+        }
         //}
         moveDirection.y -= 10 * Time.deltaTime;          //重力計算
         //controller.Move(moveDirection * Time.deltaTime); //cubeを動かす処理
-        if (Input.GetButtonDown("Fire3") || Input.GetKey(KeyCode.Q))
-        {
-            stage1.transform.position -= transform.right * (jumpPower);
-            //flag = true;
-        }
-        if (flag == true && tim < 60)
-        {
-            //GameObject stage1 = GameObject.Find("Stage");
-            //Vector3 v = stage1.transform.localPosition;
-            //v.x += 0.1f;
-            //stage1.transform.localPosition = v;
-            //stage1.transform.Rotate(new Vector3(30, 0, 0));
-            //transform.position -= transform.right * (jumpPower);
+        //if (Input.GetButtonDown("Fire3") || Input.GetKey(KeyCode.Q))
+        //{
+        //    stage1.transform.position -= transform.right * (jumpPower);
+        //    //flag = true;
+        //}
+        //if (flag == true && tim < 60)
+        //{
+        //    //GameObject stage1 = GameObject.Find("Stage");
+        //    //Vector3 v = stage1.transform.localPosition;
+        //    //v.x += 0.1f;
+        //    //stage1.transform.localPosition = v;
+        //    //stage1.transform.Rotate(new Vector3(30, 0, 0));
+        //    //transform.position -= transform.right * (jumpPower);
 
-        }
-        else
-        {
-            tim = 0;
-            flag = false;
+        //}
+        //else
+        //{
+        //    tim = 0;
+        //    flag = false;
         }
         //if (Input.GetKey(KeyCode.F)) //Fを押すとプレイヤが1度ずつ回転
         //{
         //    transform.Rotate(new Vector3(1, 0, 0));
         //}
     }
-}
