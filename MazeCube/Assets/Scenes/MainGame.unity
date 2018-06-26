@@ -20258,7 +20258,7 @@ MonoBehaviour:
   movementSpeed: 1
   jumpPower: 1
   Dash: 1
-  stage1: {fileID: 0}
+  stage1: {fileID: 171146809}
 --- !u!65 &1951915237
 BoxCollider:
   m_ObjectHideFlags: 0

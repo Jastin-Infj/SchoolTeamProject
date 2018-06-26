@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ButtonCheck : MonoBehaviour {
 
+    public string NextScece;
+
+
 	// Use this for initialization
 	void Start ()
     {
@@ -18,6 +21,6 @@ public class ButtonCheck : MonoBehaviour {
     //ボタンが押されたあとの処理
     public void OnClick()
     {
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene(NextScece);
     }
 }
