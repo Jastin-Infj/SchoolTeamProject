@@ -16429,7 +16429,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1673058623
 MonoBehaviour:
@@ -16457,9 +16457,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54b331d66da3c8a40b724858447b5b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1
-  jumpPower: 1
-  Dash: 1
+  movementSpeed: 0.1
+  jumpPower: 3
+  Dash: 0.03
   stage1: {fileID: 171146809}
 --- !u!1 &1675679598
 GameObject:
@@ -16509,7 +16509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextScece: Result
-  counttime: 10
+  counttime: 60
 --- !u!114 &1675679601
 MonoBehaviour:
   m_ObjectHideFlags: 0
