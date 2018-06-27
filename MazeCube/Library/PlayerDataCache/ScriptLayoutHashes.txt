@@ -121,8 +121,9 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Animetion
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Rotation
 0b4a17bb78fa868e5272812cf6a0cd8b Assembly-CSharp.dll:.PlayerCont
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SelectBigScale
 8982f7e57886bdce16d3b4fd949599b3 Assembly-CSharp.dll:.toMapStage
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -145,6 +146,7 @@ f02726adeff0a3ec5905565234b372da UnityEngine.TestRunner.dll:UnityEngine.TestTool
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
+7cc2ee5f56576a75f6483a230c30fb82 Assembly-CSharp.dll:.NearWall
 9e0ef5bf862444b5dc48b5a99554ce7c UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioListenerExtension
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
@@ -158,5 +160,3 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Jump
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ToTitle
 43cb284a72e7569dfe027fbf780acb0a Assembly-CSharp.dll:.ButtonCheck
-7cc2ee5f56576a75f6483a230c30fb82 Assembly-CSharp.dll:.NearWall
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Rotation
