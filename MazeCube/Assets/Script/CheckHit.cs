@@ -5,17 +5,18 @@ using UnityEngine;
 public class CheckHit : MonoBehaviour {
 
     public string[] Tag;
+    private AudioSource sound;
 
     // Use this for initialization
     void Start ()
     {
-        
+        this.sound = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-
+        
     }
 
     //オブジェクトが衝突したとき
@@ -25,7 +26,7 @@ public class CheckHit : MonoBehaviour {
         {
             if (collision.gameObject.tag == Tag[i])
             {
-                Destroy(collision.gameObject);
+               this.sound.Play();
             }
         }
     }

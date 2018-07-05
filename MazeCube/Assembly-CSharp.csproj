@@ -72,6 +72,7 @@
     <Compile Include="Assets\Script\Rotation.cs" />
     <Compile Include="Assets\Script\SetMaptile.cs" />
     <Compile Include="Assets\Script\SetTime.cs" />
+    <Compile Include="Assets\Script\Sound.cs" />
     <Compile Include="Assets\Script\toMapStage.cs" />
     <Compile Include="Assets\Script\ToTitle.cs" />
     <None Include="Assets\Resources\idle\Motion\MotionFrame.txt" />
