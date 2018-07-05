@@ -64,6 +64,7 @@
     <Compile Include="Assets\Script\Animetion.cs" />
     <Compile Include="Assets\Script\ButtonCheck.cs" />
     <Compile Include="Assets\Script\CameraController.cs" />
+    <Compile Include="Assets\Script\CheckHit.cs" />
     <Compile Include="Assets\Script\Jump.cs" />
     <Compile Include="Assets\Script\MapCameraPos.cs" />
     <Compile Include="Assets\Script\NearWall.cs" />
