@@ -61,20 +61,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\Animetion.cs" />
-    <Compile Include="Assets\Script\ButtonCheck.cs" />
-    <Compile Include="Assets\Script\CameraController.cs" />
-    <Compile Include="Assets\Script\CheckHit.cs" />
-    <Compile Include="Assets\Script\Jump.cs" />
-    <Compile Include="Assets\Script\MapCameraPos.cs" />
-    <Compile Include="Assets\Script\NearWall.cs" />
-    <Compile Include="Assets\Script\PlayerCont.cs" />
-    <Compile Include="Assets\Script\Rotation.cs" />
-    <Compile Include="Assets\Script\SetMaptile.cs" />
-    <Compile Include="Assets\Script\SetTime.cs" />
-    <Compile Include="Assets\Script\Sound.cs" />
-    <Compile Include="Assets\Script\toMapStage.cs" />
-    <Compile Include="Assets\Script\ToTitle.cs" />
+    <Compile Include="Assets\Script\Camera\CameraController.cs" />
+    <Compile Include="Assets\Script\Camera\MapCameraPos.cs" />
+    <Compile Include="Assets\Script\Camera\PlayerCameraPos.cs" />
+    <Compile Include="Assets\Script\JumpSound.cs" />
+    <Compile Include="Assets\Script\Map\CheckHit.cs" />
+    <Compile Include="Assets\Script\Map\SetMaptile.cs" />
+    <Compile Include="Assets\Script\Map\toMapStage.cs" />
+    <Compile Include="Assets\Script\Player\Animetion.cs" />
+    <Compile Include="Assets\Script\Player\Jump.cs" />
+    <Compile Include="Assets\Script\Player\NearWall.cs" />
+    <Compile Include="Assets\Script\Player\PlayerCont.cs" />
+    <Compile Include="Assets\Script\Player\Rotation.cs" />
+    <Compile Include="Assets\Script\Player\Sound.cs" />
+    <Compile Include="Assets\Script\Player\WallRot.cs" />
+    <Compile Include="Assets\Script\Task\ButtonCheck.cs" />
+    <Compile Include="Assets\Script\Task\ToTitle.cs" />
+    <Compile Include="Assets\Script\UI\SetTime.cs" />
     <None Include="Assets\Resources\idle\Motion\MotionFrame.txt" />
     <None Include="Assets\Script\Readme.txt" />
     <Reference Include="UnityEditor.StandardEvents">
