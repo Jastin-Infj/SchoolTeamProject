@@ -64,8 +64,7 @@
     <Compile Include="Assets\Script\Camera\CameraController.cs" />
     <Compile Include="Assets\Script\Camera\MapCameraPos.cs" />
     <Compile Include="Assets\Script\Camera\PlayerCameraPos.cs" />
-    <Compile Include="Assets\Script\JumpSound.cs" />
-    <Compile Include="Assets\Script\Map\CheckHit.cs" />
+    <Compile Include="Assets\Script\Map\JumpSound.cs" />
     <Compile Include="Assets\Script\Map\SetMaptile.cs" />
     <Compile Include="Assets\Script\Map\toMapStage.cs" />
     <Compile Include="Assets\Script\Player\Animetion.cs" />
@@ -79,7 +78,6 @@
     <Compile Include="Assets\Script\Task\ToTitle.cs" />
     <Compile Include="Assets\Script\UI\SetTime.cs" />
     <None Include="Assets\Resources\idle\Motion\MotionFrame.txt" />
-    <None Include="Assets\Script\Readme.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/takum/Desktop/SchoolTeamProject/MazeCube/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
