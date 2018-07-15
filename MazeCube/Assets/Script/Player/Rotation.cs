@@ -6,11 +6,16 @@ public class Rotation : MonoBehaviour {
     private int time;
     private bool flagR;
     private float grv;
+    private Vector3 vel;
+
+    private Animator animator;
     // Use this for initialization
     void Start () {
         time = 0;
         flagR = false;
         grv = -9.81f;
+        animator = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -18,12 +23,15 @@ public class Rotation : MonoBehaviour {
     {
 
 
-        if (flagR == false && Input.GetKey(KeyCode.T)) //Fを押すとmaze1度ずつ回転
-        {
-            flagR = true;
-            //transform.Rotate(new Vector3(0, 180, 0));
-            //transform.Rotate(new Vector3(0, 3, 0));
-        }
+   
+            if (flagR == false && Input.GetKey(KeyCode.T)) //Fを押すとmaze1度ずつ回転
+            {
+                flagR = true;
+                //transform.Rotate(new Vector3(0, 180, 0));
+                //transform.Rotate(new Vector3(0, 3, 0));
+                //animator.SetTrigger("defaut");
+            }
+        
 
         if (flagR == true && time <=60)
         {
@@ -34,6 +42,8 @@ public class Rotation : MonoBehaviour {
         if(flagR == true /*&& time <= 20*/)
         {
             transform.Rotate(new Vector3(0,0, 3));
+
+            //animator.SetTrigger("defaut");
             //transform.Rotate(new Vector3(3, 0, 0));
             //transform.Rotate(new Vector3(0, 3,0));
             //transform.Rotate(new Vector3(0, 0, 3));
@@ -99,4 +109,20 @@ public class Rotation : MonoBehaviour {
 
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Map" || collision.gameObject.tag == "Goal")
+        {
+            this.gameObject.transform.rotation = Quaternion.Euler(-90, 0, 0);
+        }
+    }
+
+    //接触が離れたら
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Map" || collision.gameObject.tag == "Goal")
+        {
+            this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
 }

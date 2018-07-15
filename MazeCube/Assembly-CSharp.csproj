@@ -61,7 +61,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\Boll\BallController.cs" />
     <Compile Include="Assets\Script\Camera\CameraController.cs" />
+    <Compile Include="Assets\Script\Camera\CheckObject.cs" />
     <Compile Include="Assets\Script\Camera\MapCameraPos.cs" />
     <Compile Include="Assets\Script\Camera\PlayerCameraPos.cs" />
     <Compile Include="Assets\Script\Map\JumpSound.cs" />
