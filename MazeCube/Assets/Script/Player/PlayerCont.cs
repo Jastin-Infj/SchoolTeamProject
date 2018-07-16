@@ -38,15 +38,16 @@ public class PlayerCont : MonoBehaviour {
         
         animator = GetComponent<Animator>();
         addSpeed = 0;
-        flag = false;
+        flag = true;
         goalflag = false;
         fallFlag = false;
+        fallCnt = 0;
         //grv = -9.81f;
         vel = new Vector3();
         vel2 = new Vector3();
        
-        this.transform.position = start.transform.position + new Vector3(0, 3, 0);
-
+        this.transform.position = start.transform.position + new Vector3(0, 5, 0);
+        
     }
 
     // Update is called once per frame
@@ -54,8 +55,13 @@ public class PlayerCont : MonoBehaviour {
     {
         if (goalflag == false)
         {
-            if (flag == true)
-                if (Input.GetButtonDown("Fire5"))//Aキーでダッシュ
+            //if (flag == true)
+            //{
+            //    this.transform.rotation = Quaternion.Euler(-90, 0, 0);
+            //    flag = false;
+            //}
+            if(flag==true)
+            if (Input.GetButtonDown("Fire5"))//Aキーでダッシュ
                 {
                     Dush();
                 }
@@ -71,9 +77,14 @@ public class PlayerCont : MonoBehaviour {
             vel = Vector3.zero;
             vel += Input.GetAxis("Horizontal") * plCamera.transform.right;
             vel += Input.GetAxis("Vertical") * (plCamera.transform.forward);
+            
             vel.y = 0;
             vel = vel.normalized * (movementSpeed + addSpeed);
-            this.transform.LookAt(this.transform.position + vel/*+ rig.velocity*/);
+            //if (Input.GetKey(KeyCode.W))
+            //{
+            //    vel += plCamera.transform.forward;
+            //}
+                this.transform.LookAt(this.transform.position + vel/*+ rig.velocity*/);
             this.transform.position += vel * Time.deltaTime * 60;
             //vel.x=Input.GetAxis("Horizontal")/** movementSpeed*/;
             //vel.z = Input.GetAxis("Vertical")/***//*movementSpeed*/;
@@ -205,7 +216,7 @@ public class PlayerCont : MonoBehaviour {
             {
                 fallCnt += Time.deltaTime;
             }
-            if(fallCnt>=0.7f)
+            if(fallCnt>=0.8f)
             {
                 Fall();
             }
@@ -257,8 +268,9 @@ public class PlayerCont : MonoBehaviour {
 
         public void Fall()
     {
-        this.transform.position = start.transform.position + new Vector3(0, 3, 0);
-        this.transform.rotation = Quaternion.Euler(0,0,0);
+        this.transform.position = start.transform.position + new Vector3(0, 9, 0);
+        //this.transform.rotation = new Vector3(0, 0, 0);
+        this.transform.rotation = Quaternion.Euler(-90, 0, 0);
         fallCnt = 0;
         fallFlag = false;
     }
@@ -285,9 +297,10 @@ public class PlayerCont : MonoBehaviour {
     }
     void OnCollisionExit(Collision collision)
     {
-
-        fallFlag = true;
-
+        if (collision.gameObject.tag == "Map")
+        {
+            fallFlag = true;
+        }
     }
 
 
