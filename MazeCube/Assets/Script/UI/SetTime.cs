@@ -25,6 +25,9 @@ public class SetTime : MonoBehaviour
         {
             counttime = firstcount;
             this.countZero = false;
+
+            //ゴールクリア表示をここに記述
+
             SceneManager.LoadScene(this.NextScece);
             return;
         }
