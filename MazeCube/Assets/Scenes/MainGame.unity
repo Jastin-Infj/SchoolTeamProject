@@ -283,6 +283,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  ball: {fileID: 1008618960739086, guid: a5f98b9349d4f9f44a67948aed3316b3, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
   - {fileID: 2100000, guid: 73ff8d657d43aa14b884c55d877c8408, type: 2}
@@ -383,6 +384,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  ball: {fileID: 1008618960739086, guid: a5f98b9349d4f9f44a67948aed3316b3, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
   - {fileID: 2100000, guid: 73ff8d657d43aa14b884c55d877c8408, type: 2}
@@ -439,6 +441,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  ball: {fileID: 1008618960739086, guid: a5f98b9349d4f9f44a67948aed3316b3, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
   - {fileID: 2100000, guid: 73ff8d657d43aa14b884c55d877c8408, type: 2}
@@ -495,6 +498,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  ball: {fileID: 1008618960739086, guid: a5f98b9349d4f9f44a67948aed3316b3, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
   - {fileID: 2100000, guid: 73ff8d657d43aa14b884c55d877c8408, type: 2}
@@ -772,6 +776,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  ball: {fileID: 1008618960739086, guid: a5f98b9349d4f9f44a67948aed3316b3, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
   - {fileID: 2100000, guid: 73ff8d657d43aa14b884c55d877c8408, type: 2}
@@ -957,6 +962,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  ball: {fileID: 1008618960739086, guid: a5f98b9349d4f9f44a67948aed3316b3, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
   - {fileID: 2100000, guid: 73ff8d657d43aa14b884c55d877c8408, type: 2}
@@ -1278,6 +1284,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  ball: {fileID: 1008618960739086, guid: a5f98b9349d4f9f44a67948aed3316b3, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
   - {fileID: 2100000, guid: 73ff8d657d43aa14b884c55d877c8408, type: 2}
@@ -1334,6 +1341,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  ball: {fileID: 1008618960739086, guid: a5f98b9349d4f9f44a67948aed3316b3, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
   - {fileID: 2100000, guid: 73ff8d657d43aa14b884c55d877c8408, type: 2}
@@ -1390,6 +1398,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  ball: {fileID: 1008618960739086, guid: a5f98b9349d4f9f44a67948aed3316b3, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
   - {fileID: 2100000, guid: 73ff8d657d43aa14b884c55d877c8408, type: 2}
@@ -1446,6 +1455,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  ball: {fileID: 1008618960739086, guid: a5f98b9349d4f9f44a67948aed3316b3, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
   - {fileID: 2100000, guid: 73ff8d657d43aa14b884c55d877c8408, type: 2}

@@ -11,6 +11,8 @@ public class setMap : MonoBehaviour
     //生成するオブジェクト
     public GameObject createObject;
     public GameObject player;
+    public GameObject ball;
+
     public Material[] mate;
 
     public string filePath;
@@ -136,6 +138,11 @@ public class setMap : MonoBehaviour
                 goal.transform.position = vector3;
                 goal.GetComponent<Renderer>().material = mate[9];
                 goal.gameObject.tag = "Goal";
+                break;
+            case "B":
+                GameObject ball = Instantiate(this.ball) as GameObject;
+                //座標の変換する
+                ball.transform.position = vector3;
                 break;
         }
     }
