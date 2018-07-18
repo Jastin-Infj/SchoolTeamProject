@@ -30,7 +30,7 @@ public class PlayerCont : MonoBehaviour {
     private float timR;
     private bool flagRt;
     public GameObject start;
-    public GameObject plCamera;
+    private GameObject plCamera;
     // Use this for initialization
     //-------------------------------------------------------
 
@@ -38,8 +38,13 @@ public class PlayerCont : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        ///<summary>
+        ///plCameraの情報を受け取る
+        ///</summary>
+        this.plCamera = GetComponent<GameObject>();
+        this.plCamera = CameraFind();
 
-        Box=GetComponent<BoxCollider>();
+        Box =GetComponent<BoxCollider>();
         animator = GetComponent<Animator>();
         addSpeed = 0;
         goalflag = false;
@@ -53,7 +58,7 @@ public class PlayerCont : MonoBehaviour {
         vel = new Vector3();
         timR = 0;
         flagR = false;
-        this.transform.position = start.transform.position + new Vector3(0, 3, 0);
+        //this.transform.position = start.transform.position + new Vector3(0, 3, 0);
         this.animator.SetBool("Walk", false);
         this.animator.SetBool("Take", true);
     }
@@ -61,6 +66,7 @@ public class PlayerCont : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        
         this.transform.localScale = new Vector3(10, 10, 10);
         if (respFlag == true)
         {
@@ -261,6 +267,9 @@ public class PlayerCont : MonoBehaviour {
         return this.goalflag;
     	}
 
-    
+    GameObject CameraFind()
+    {
+        return GameObject.Find("PlayerPos");
+    }
 
 }

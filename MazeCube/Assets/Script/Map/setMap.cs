@@ -130,7 +130,7 @@ public class setMap : MonoBehaviour
                 //座標の変換する
                 GameObject Player = Instantiate(this.player) as GameObject;
                 //座標の変換する
-                Player.transform.position = vector3;
+                Player.transform.position = new Vector3(vector3.x , vector3.y + 20 , vector3.z);
                 break;
             case "G":
                 GameObject goal = Instantiate(this.createObject) as GameObject;
