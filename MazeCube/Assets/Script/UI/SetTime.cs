@@ -7,14 +7,21 @@ public class SetTime : MonoBehaviour
 {
     public string NextScece;
     public float counttime;
+    public PlayerCont player;
+
+    public Image gameover;
+    public Image gameclear;
 
     private float firstcount;
+    private float sleeptime;
+
     bool countZero;
 	// Use this for initialization
 	void Start ()
     {
         this.firstcount = this.counttime;
         this.countZero = false;
+        this.sleeptime = 0.0f;
 	}
 	
 	// Update is called once per frame
@@ -25,9 +32,7 @@ public class SetTime : MonoBehaviour
         {
             counttime = firstcount;
             this.countZero = false;
-
-            //ゴールクリア表示をここに記述
-
+            this.gameover.enabled = true;
             SceneManager.LoadScene(this.NextScece);
             return;
         }
@@ -41,11 +46,26 @@ public class SetTime : MonoBehaviour
 
                 //Textクラスのテキストにタイムを表示する　（小数点0）
                 this.GetComponent<Text>().text = counttime.ToString("F0");
+
+                if (ClearCheck())
+                {
+                    this.gameclear.enabled = true;
+                }
+                else
+                {
+                    this.gameover.enabled = false;
+                    this.gameclear.enabled = false;
+                }
             }
             else
             {
                 this.countZero = true;
             }
         }
+    }
+
+    bool ClearCheck()
+    {
+       return this.player.ClearCheck();
     }
 }

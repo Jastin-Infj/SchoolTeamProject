@@ -303,5 +303,9 @@ public class PlayerCont : MonoBehaviour {
         }
     }
 
+    public bool ClearCheck()
+    {
+        return this.goalflag;
+    }
 
 }
