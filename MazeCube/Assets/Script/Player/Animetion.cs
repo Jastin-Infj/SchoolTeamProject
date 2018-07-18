@@ -15,9 +15,9 @@ public class Animetion : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if(Input.GetKeyDown(KeyCode.S))
+		if(Input.GetKeyDown(KeyCode.B))
         {
-            this.animator.SetBool("Walk", true);
+            this.animator.SetBool("Defolut", true);
         }
 	}
 }
