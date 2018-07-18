@@ -32,7 +32,7 @@ public class setMap : MonoBehaviour
         this.textAsset = Resources.Load("StageData/" + this.filePath + this.number) as TextAsset;
         this.line = this.textAsset.text;
         Set(this.number);
-
+        this.player.transform.position = new Vector3 { };
     }
 	
 	// Update is called once per frame
@@ -60,7 +60,7 @@ public class setMap : MonoBehaviour
                 {
                     continue;
                 }
-                this.JudgeCreate(data[x], createpos);
+                this.JudgeCreate(data[z * 10 + x], createpos);
             }
         }
     }
@@ -124,17 +124,18 @@ public class setMap : MonoBehaviour
                 lightblue.transform.position = vector3;
                 lightblue.GetComponent<Renderer>().material = mate[8];
                 break;
-            case "P":
-                GameObject playercopy = Instantiate(this.player) as GameObject;
+            case "s":
                 //座標の変換する
-                playercopy.transform.position = vector3;
+                GameObject Player = Instantiate(this.player) as GameObject;
+                //座標の変換する
+                Player.transform.position = vector3;
                 break;
             case "G":
                 GameObject goal = Instantiate(this.createObject) as GameObject;
                 //座標の変換する
                 goal.transform.position = vector3;
                 goal.GetComponent<Renderer>().material = mate[9];
-                this.gameObject.tag = "Goal";
+                goal.gameObject.tag = "Goal";
                 break;
         }
     }

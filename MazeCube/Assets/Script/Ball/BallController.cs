@@ -13,7 +13,7 @@ public class BallController : MonoBehaviour
     public Transform GoalTarget;　//終着点
     NavMeshAgent agent;
     bool turn = false;
-    public int cnt = 0;
+    public float cnt = 3.0f;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -21,19 +21,15 @@ public class BallController : MonoBehaviour
 
     void Update()
     {
-        cnt++;
-        if(cnt >= 350)
+        //3秒毎にTrue、false入れ替え
+        cnt -= Time.deltaTime;
+        if (cnt <= 0.0)
         {
-            if (turn == false)
-            {
-                turn = true;
-            }
-            else if(turn == true)
-            {
-                turn = false;
-            }
-            cnt = 0;
+            turn = !turn;
+            cnt = 3.0f;
         }
+    
+        //ボールが指定した場所へ向かう
         if (turn == false)
         {
             agent.SetDestination(GoalTarget.position);
@@ -42,5 +38,5 @@ public class BallController : MonoBehaviour
         {
             agent.SetDestination(StartTarget.position);
         }
-    }
+     }
 }
