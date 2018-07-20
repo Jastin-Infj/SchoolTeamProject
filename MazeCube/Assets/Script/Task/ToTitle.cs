@@ -16,7 +16,7 @@ public class ToTitle : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetButtonDown("A"))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetButtonDown("A") || Input.GetButtonDown("B"))
         {
             SceneManager.LoadScene("Title");
         }

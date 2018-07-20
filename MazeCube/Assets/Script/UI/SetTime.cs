@@ -64,7 +64,7 @@ public class SetTime : MonoBehaviour
         }
     }
 
-    bool ClearCheck()
+    private bool ClearCheck()
     {
        return this.player.ClearCheck();
     }
