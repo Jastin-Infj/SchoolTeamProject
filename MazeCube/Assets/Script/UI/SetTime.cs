@@ -11,18 +11,37 @@ public class SetTime : MonoBehaviour
     public float counttime;
     public PlayerCont player;
 
-    public Image gameover;
+    private Image gameover;
+    private Image clear;
 
     private float firstcount;
+    /// <summary>
+    /// どのタイムを表示するのかを格納
+    /// </summary>
     private int[] imagenumber = new int[5];
-    public Image[] timeUI;
+    /// <summary>
+    /// 実際にタイムに表示するUI
+    /// </summary>
+    private GameObject[] countdownui = new GameObject[5];
+
+    /// <summary>
+    /// 登録するタイム
+    /// </summary>
+    public Sprite[] timeUI;
+
 
     bool countZero;
 	// Use this for initialization
 	void Start ()
     {
+        this.gameover = GetComponent<Image>();
+        this.clear = GetComponent<Image>();
+        this.countdownui = GetComponents<GameObject>();
         this.firstcount = this.counttime;
         this.countZero = false;
+
+        //ゲームオブジェクトを生成する
+        this.ImageConvertCreate();
 	}
 	
 	// Update is called once per frame
@@ -49,10 +68,14 @@ public class SetTime : MonoBehaviour
                 this.GetComponent<Text>().text = counttime.ToString("F0");
 
 
-
+                //ゲーム状況を確認する
                 if (!ClearCheck())
                 {
                     this.gameover.enabled = false;
+                }
+                else
+                {
+                    this.clear.enabled = false;
                 }
             }
             else
@@ -60,6 +83,7 @@ public class SetTime : MonoBehaviour
                 this.countZero = true;
             }
         }
+        this.ImageConvert();
     }
 
 
@@ -186,10 +210,31 @@ public class SetTime : MonoBehaviour
 
 
     /// <summary>
-    /// タイムの表示からImageを読み込む
+    /// タイムの表示するためのゲームオブジェクトを生成する
+    /// </summary>
+    private void ImageConvertCreate()
+    {
+        string[] objectname = new string[5] {"min1","min2","coron","sec1","sec2"};
+
+        for (int i = 0; i < this.countdownui.Length; ++i)
+        {
+            this.countdownui[i] = new GameObject(objectname[i]);
+            //Canvasの中に格納する
+            this.countdownui[i].transform.parent = GameObject.Find("Canvas").transform;
+            //座標は0とする
+            this.countdownui[i].AddComponent<RectTransform>().anchoredPosition = new Vector3 { };
+            this.countdownui[i].GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+        }
+    }
+
+    /// <summary>
+    /// タイムを表示をテクスチャに貼り付けて表示をします
     /// </summary>
     private void ImageConvert()
     {
-
+        for(int i = 0;i < countdownui.Length;++i)
+        {
+            this.countdownui[i].AddComponent<Image>().sprite = timeUI[this.imagenumber[i]];
+        }
     }
 }

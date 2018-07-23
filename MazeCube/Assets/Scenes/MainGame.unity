@@ -1254,8 +1254,18 @@ MonoBehaviour:
   NextScece: Result
   counttime: 60
   player: {fileID: 114549904084699834, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
-  gameover: {fileID: 1129262291}
-  timeUI: []
+  timeUI:
+  - {fileID: 21300000, guid: 8afb264e1118dd24ebeb2ca941e89956, type: 3}
+  - {fileID: 21300000, guid: 0877a81170b9a244abc2b02340a0b925, type: 3}
+  - {fileID: 21300000, guid: 1ab7c8785a19707468c2c9bd9bd77849, type: 3}
+  - {fileID: 21300000, guid: 465f232c1ca9bb64eb05b63b70b00a5d, type: 3}
+  - {fileID: 21300000, guid: 784afc20f3feb1a449343027a96b9ff9, type: 3}
+  - {fileID: 21300000, guid: 3452f15b94afb504d9e57b4953c421a6, type: 3}
+  - {fileID: 21300000, guid: b7255078285eecf4a8b82c9df64ef351, type: 3}
+  - {fileID: 21300000, guid: 1ccd4a81df0efd74f84321f118ca618c, type: 3}
+  - {fileID: 21300000, guid: efb6ba2f174c57048a01893f60b00ef0, type: 3}
+  - {fileID: 21300000, guid: db1c3c2a82df524409e857044fad3d3b, type: 3}
+  - {fileID: 21300000, guid: c65514a46d24adf4f9993947919513f6, type: 3}
 --- !u!114 &1675679601
 MonoBehaviour:
   m_ObjectHideFlags: 0

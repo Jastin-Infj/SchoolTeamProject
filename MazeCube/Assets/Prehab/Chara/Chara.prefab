@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 114549904084699834}
   - component: {fileID: 114346427024239150}
   - component: {fileID: 222947722813905418}
-  - component: {fileID: 114943880443905046}
   m_Layer: 0
   m_Name: Chara
   m_TagString: Chara
@@ -1235,34 +1234,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 0.4
   Dash: 0.2
-  start: {fileID: 1358958972299226}
---- !u!114 &114943880443905046
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1358958972299226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: acd8a179a43337049b42b762c043c140, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &222947722813905418
 CanvasRenderer:
   m_ObjectHideFlags: 1
