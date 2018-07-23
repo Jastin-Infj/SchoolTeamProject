@@ -82,6 +82,7 @@
     <Compile Include="Assets\Script\Task\ToTitle.cs" />
     <Compile Include="Assets\Script\UI\GameEnd.cs" />
     <Compile Include="Assets\Script\UI\SetTime.cs" />
+    <None Include="Assets\Resources\Font\Number\Timeshader.shader" />
     <None Include="Assets\Resources\idle\Motion\MotionFrame.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/takum/Desktop/SchoolTeamProject/MazeCube/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
