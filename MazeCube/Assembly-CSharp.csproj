@@ -82,17 +82,7 @@
     <Compile Include="Assets\Script\Task\ToTitle.cs" />
     <Compile Include="Assets\Script\UI\GameEnd.cs" />
     <Compile Include="Assets\Script\UI\SetTime.cs" />
-    <None Include="Assets\Resources\StageData\Tutorial9.txt" />
     <None Include="Assets\Resources\idle\Motion\MotionFrame.txt" />
-    <None Include="Assets\Resources\StageData\Tutorial1.txt" />
-    <None Include="Assets\Resources\StageData\Tutorial4.txt" />
-    <None Include="Assets\Resources\StageData\Tutorial8.txt" />
-    <None Include="Assets\Resources\StageData\Tutorial2.txt" />
-    <None Include="Assets\Resources\StageData\Tutorial6.txt" />
-    <None Include="Assets\Resources\StageData\Tutorial10.txt" />
-    <None Include="Assets\Resources\StageData\Tutorial7.txt" />
-    <None Include="Assets\Resources\StageData\Tutorial3.txt" />
-    <None Include="Assets\Resources\StageData\Tutorial5.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/takum/Desktop/SchoolTeamProject/MazeCube/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

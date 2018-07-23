@@ -28,7 +28,7 @@ public class setMap : MonoBehaviour
     private TextAsset textAsset;
 
     // Use this for initialization
-    void Awake ()
+    void Start()
     {
         this.textAsset = new TextAsset();
         this.textAsset = Resources.Load("StageData/" + this.filePath + this.number) as TextAsset;
@@ -50,7 +50,7 @@ public class setMap : MonoBehaviour
         Vector3 createpos;
 
         
-        char[] kugiri = {' ','\r', '\n'};
+        char[] kugiri = {',','\r', '\n'};
         for (int z = 0; z < MapsizeZ; ++z)
         {
             for (int x = 0; x < MapsizeX; ++x)
