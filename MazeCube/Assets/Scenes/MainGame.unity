@@ -1255,6 +1255,7 @@ MonoBehaviour:
   counttime: 60
   player: {fileID: 114549904084699834, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
   gameover: {fileID: 1129262291}
+  timeUI: []
 --- !u!114 &1675679601
 MonoBehaviour:
   m_ObjectHideFlags: 0

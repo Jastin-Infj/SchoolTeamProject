@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class PlayerCont : MonoBehaviour {
     //-------------------------------------------------------
@@ -36,6 +37,12 @@ public class PlayerCont : MonoBehaviour {
     //public GameObject start;
     private Vector3 start;
     private GameObject plCamera;
+
+    /// <summary>
+    /// ゲームクリアを表示する
+    /// </summary>
+    private Image clearui;
+
     // Use this for initialization
     //-------------------------------------------------------
 
@@ -48,6 +55,7 @@ public class PlayerCont : MonoBehaviour {
         ///</summary>
         this.plCamera = GetComponent<GameObject>();
         this.plCamera = CameraFind();
+        this.clearui = GetComponent<Image>();
 
         Box =GetComponent<BoxCollider>();
         animator = GetComponent<Animator>();
@@ -164,7 +172,7 @@ public class PlayerCont : MonoBehaviour {
                 {
                     fallCnt += Time.deltaTime;
                 }
-                if (fallCnt >= 0.5f)
+                if (fallCnt >= 0.1f)
                 {
                     Fall();
                 }
@@ -338,5 +346,11 @@ public class PlayerCont : MonoBehaviour {
     {
         return GameObject.Find("PlayerPos");
     }
-
+    void GameClearRender()
+    {
+        if(ClearCheck())
+        {
+            
+        }
+    }
 }
