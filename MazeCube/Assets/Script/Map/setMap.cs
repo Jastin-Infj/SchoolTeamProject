@@ -28,7 +28,7 @@ public class setMap : MonoBehaviour
     private TextAsset textAsset;
 
     // Use this for initialization
-    void Start ()
+    void Awake ()
     {
         this.textAsset = new TextAsset();
         this.textAsset = Resources.Load("StageData/" + this.filePath + this.number) as TextAsset;
