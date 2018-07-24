@@ -82,6 +82,7 @@
     <Compile Include="Assets\Script\Task\ToTitle.cs" />
     <Compile Include="Assets\Script\UI\GameEnd.cs" />
     <Compile Include="Assets\Script\UI\SetTime.cs" />
+    <Compile Include="Assets\Script\UI\SetTimeUI.cs" />
     <None Include="Assets\Resources\Font\Number\Timeshader.shader" />
     <None Include="Assets\Resources\idle\Motion\MotionFrame.txt" />
     <Reference Include="UnityEditor.StandardEvents">

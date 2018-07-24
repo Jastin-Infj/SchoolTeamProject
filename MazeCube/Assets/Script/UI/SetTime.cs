@@ -11,79 +11,67 @@ public class SetTime : MonoBehaviour
     public float counttime;
     public PlayerCont player;
 
-    private Image gameover;
-    private Image clear;
+    public Image gameover;
+    public Image clear;
 
     private float firstcount;
     /// <summary>
     /// どのタイムを表示するのかを格納
     /// </summary>
     private int[] imagenumber = new int[5];
-    /// <summary>
-    /// 実際にタイムに表示するUI
-    /// </summary>
-    private GameObject[] countdownui = new GameObject[5];
-
-    /// <summary>
-    /// 登録するタイム
-    /// </summary>
-    public Sprite[] timeUI;
 
 
     bool countZero;
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
-        this.gameover = GetComponent<Image>();
-        this.clear = GetComponent<Image>();
-        this.countdownui = GetComponents<GameObject>();
         this.firstcount = this.counttime;
         this.countZero = false;
+        this.clear.enabled = false;
+        this.gameover.enabled = false;
+    }
 
-        //ゲームオブジェクトを生成する
-        this.ImageConvertCreate();
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    // Update is called once per frame
+    void Update()
     {
         //カウントが0になった
-        if(countZero)
+        if (countZero)
         {
+            //タイムの初期化時設定
             counttime = firstcount;
+            //カウントが０になったフラグ
             this.countZero = false;
+            //ゲームオーバーフラグをON
             this.gameover.enabled = true;
+            //リザルト画面へ移動する
             SceneManager.LoadScene(this.NextScece);
             return;
         }
         else
         {
-            //カウントが0ではない場合タイムを減らす
-            if(counttime > 0)
-            {
-                //タイムのカウントを減らす
-                this.counttime -= Time.deltaTime;
-
-                //Textクラスのテキストにタイムを表示する　（小数点0）
-                this.GetComponent<Text>().text = counttime.ToString("F0");
-
-
-                //ゲーム状況を確認する
-                if (!ClearCheck())
-                {
-                    this.gameover.enabled = false;
-                }
-                else
-                {
-                    this.clear.enabled = false;
-                }
-            }
-            else
+            //タイムが0になった
+            if (counttime <= 0)
             {
                 this.countZero = true;
             }
+            //タイムのカウントを減らす
+            this.counttime -= Time.deltaTime;
+
+            //Textクラスのテキストにタイムを表示する　（小数点0）
+            this.GetComponent<Text>().text = counttime.ToString("F0");
+
+
+            //ゲーム状況を確認する
+            if (ClearCheck())
+            {
+                this.clear.enabled = true;
+            }
+            else
+            {
+                this.gameover.enabled = false;
+            }
         }
-        this.ImageConvert();
+        this.CountTimeStringtoInt((int)counttime);
     }
 
 
@@ -95,7 +83,7 @@ public class SetTime : MonoBehaviour
     /// </returns>
     private bool ClearCheck()
     {
-       return this.player.ClearCheck();
+        return this.player.ClearCheck();
     }
 
     /// <summary>
@@ -116,10 +104,10 @@ public class SetTime : MonoBehaviour
 
 
         //先に分の値を代入
-        for(int i = 0; i < minutes.Length;++i)
+        for (int i = 0; i < minutes.Length; ++i)
         {
             //数字の桁数が1である
-            if(this.Digit(minutes) == 1)
+            if (minutes.Length == 1)
             {
                 //タイムを0とする
                 this.imagenumber[imageidnumber] = 0;
@@ -131,21 +119,21 @@ public class SetTime : MonoBehaviour
 
 
         //コロンを追記する
-        imageidnumber++;
         this.imagenumber[imageidnumber] = 10;
+        imageidnumber++;
 
 
         //秒の読み取りを行う
-        for(int i = 0; i < second.Length;--i)
+        for (int i = 0; i < second.Length; ++i)
         {
             //数字の桁数が1である
-            if (this.Digit(second) == 1)
+            if (second.Length == 1)
             {
-                //タイムを0とする
                 this.imagenumber[imageidnumber] = 0;
+                //タイムを0とする
                 imageidnumber++;
             }
-            this.imagenumber[imageidnumber] = int.Parse(second.Substring(i,1));
+            this.imagenumber[imageidnumber] = int.Parse(second.Substring(i, 1));
             imageidnumber++;
         }
 
@@ -199,7 +187,7 @@ public class SetTime : MonoBehaviour
         //数字の桁数を取得する
         int count = 0;
 
-        while(counttime != 0)
+        while (counttime != 0)
         {
             //10進数
             counttime /= 10;
@@ -208,33 +196,8 @@ public class SetTime : MonoBehaviour
         return count;
     }
 
-
-    /// <summary>
-    /// タイムの表示するためのゲームオブジェクトを生成する
-    /// </summary>
-    private void ImageConvertCreate()
+    public int getImagenumber(int number)
     {
-        string[] objectname = new string[5] {"min1","min2","coron","sec1","sec2"};
-
-        for (int i = 0; i < this.countdownui.Length; ++i)
-        {
-            this.countdownui[i] = new GameObject(objectname[i]);
-            //Canvasの中に格納する
-            this.countdownui[i].transform.parent = GameObject.Find("Canvas").transform;
-            //座標は0とする
-            this.countdownui[i].AddComponent<RectTransform>().anchoredPosition = new Vector3 { };
-            this.countdownui[i].GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-        }
-    }
-
-    /// <summary>
-    /// タイムを表示をテクスチャに貼り付けて表示をします
-    /// </summary>
-    private void ImageConvert()
-    {
-        for(int i = 0;i < countdownui.Length;++i)
-        {
-            this.countdownui[i].AddComponent<Image>().sprite = timeUI[this.imagenumber[i]];
-        }
+        return this.imagenumber[number];
     }
 }

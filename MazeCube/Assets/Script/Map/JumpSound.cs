@@ -14,14 +14,12 @@ public class JumpSound : MonoBehaviour {
     private enum Color
     {
         Red = 0,
-        Green = 1,
-        Blue = 2,
-        Yellow = 3,
-        Purple = 4,
-        Orange = 5,
-        Pink = 6,
-        Lime = 7,
-        LightBlue = 8
+        Green = 3,
+        Blue = 5,
+        Yellow = 2,
+        Purple = 6,
+        Orange = 1,
+        LightBlue = 4
     }
 	// Use this for initialization
 	void Start ()
@@ -69,14 +67,11 @@ public class JumpSound : MonoBehaviour {
             case "Yellow (Instance)":
                 this.Colorid = (int)Color.Yellow;
                 break;
-            case "Pink (Instance)":
-                this.Colorid = (int)Color.Pink;
+            case "Orange (Instance)":
+                this.Colorid = (int)Color.Orange;
                 break;
             case "Purple (Instance)":
                 this.Colorid = (int)Color.Purple;
-                break;
-            case "Lime (Instance)":
-                this.Colorid = (int)Color.Lime;
                 break;
             case "LightBlue (Instance)":
                 this.Colorid = (int)Color.LightBlue;
@@ -87,7 +82,7 @@ public class JumpSound : MonoBehaviour {
     void OnCollisionEnter(Collision collision)
     {
         //接触判定したなら・・・
-        if (collision.gameObject.name == "Chara" || collision.gameObject.name == "Boll")
+        if (collision.gameObject.tag == "Chara" || collision.gameObject.tag == "Ball")
         {
             this.SoundPlay();
         }
