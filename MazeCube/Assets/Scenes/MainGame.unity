@@ -402,12 +402,12 @@ Prefab:
     - target: {fileID: 224534467194125552, guid: b610ebbd98a48af47a490322e8b60f9c,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 634
+      value: 461
       objectReference: {fileID: 0}
     - target: {fileID: 224534467194125552, guid: b610ebbd98a48af47a490322e8b60f9c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 459
+      value: 447
       objectReference: {fileID: 0}
     - target: {fileID: 224534467194125552, guid: b610ebbd98a48af47a490322e8b60f9c,
         type: 2}
@@ -630,12 +630,12 @@ Prefab:
     - target: {fileID: 224534467194125552, guid: b610ebbd98a48af47a490322e8b60f9c,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 255
+      value: 161
       objectReference: {fileID: 0}
     - target: {fileID: 224534467194125552, guid: b610ebbd98a48af47a490322e8b60f9c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 466
+      value: 449
       objectReference: {fileID: 0}
     - target: {fileID: 224534467194125552, guid: b610ebbd98a48af47a490322e8b60f9c,
         type: 2}
@@ -859,12 +859,12 @@ Prefab:
     - target: {fileID: 224534467194125552, guid: b610ebbd98a48af47a490322e8b60f9c,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 507
+      value: 354
       objectReference: {fileID: 0}
     - target: {fileID: 224534467194125552, guid: b610ebbd98a48af47a490322e8b60f9c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 459
+      value: 448
       objectReference: {fileID: 0}
     - target: {fileID: 224534467194125552, guid: b610ebbd98a48af47a490322e8b60f9c,
         type: 2}
@@ -955,7 +955,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 645, y: -466}
+  m_AnchoredPosition: {x: 785, y: -466}
   m_SizeDelta: {x: 445.5, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &648839236
@@ -1119,12 +1119,12 @@ Prefab:
     - target: {fileID: 224534467194125552, guid: b610ebbd98a48af47a490322e8b60f9c,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 387
+      value: 260
       objectReference: {fileID: 0}
     - target: {fileID: 224534467194125552, guid: b610ebbd98a48af47a490322e8b60f9c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 461
+      value: 449
       objectReference: {fileID: 0}
     - target: {fileID: 224534467194125552, guid: b610ebbd98a48af47a490322e8b60f9c,
         type: 2}
@@ -1479,7 +1479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -225, y: 475.5}
+  m_AnchoredPosition: {x: -225, y: 453}
   m_SizeDelta: {x: 411.1, y: 129}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1573509912
@@ -1640,7 +1640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 650, y: -341}
+  m_AnchoredPosition: {x: 781, y: -341}
   m_SizeDelta: {x: 445.5, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1635944008
@@ -1847,12 +1847,12 @@ Prefab:
     - target: {fileID: 224534467194125552, guid: b610ebbd98a48af47a490322e8b60f9c,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 133
+      value: 73
       objectReference: {fileID: 0}
     - target: {fileID: 224534467194125552, guid: b610ebbd98a48af47a490322e8b60f9c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 466
+      value: 449
       objectReference: {fileID: 0}
     - target: {fileID: 224534467194125552, guid: b610ebbd98a48af47a490322e8b60f9c,
         type: 2}
@@ -2396,7 +2396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 653, y: -223}
+  m_AnchoredPosition: {x: 773, y: -117}
   m_SizeDelta: {x: 445.5, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1989935513
