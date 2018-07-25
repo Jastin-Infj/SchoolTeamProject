@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
-using UnityEngine.UI;
 
 public class PlayerCont : MonoBehaviour {
     //-------------------------------------------------------
@@ -37,12 +36,6 @@ public class PlayerCont : MonoBehaviour {
     //public GameObject start;
     private Vector3 start;
     private GameObject plCamera;
-
-    /// <summary>
-    /// ゲームクリアを表示する
-    /// </summary>
-    private Image clearui;
-
     // Use this for initialization
     //-------------------------------------------------------
 
@@ -55,7 +48,6 @@ public class PlayerCont : MonoBehaviour {
         ///</summary>
         this.plCamera = GetComponent<GameObject>();
         this.plCamera = CameraFind();
-        this.clearui = GetComponent<Image>();
 
         Box =GetComponent<BoxCollider>();
         animator = GetComponent<Animator>();
@@ -83,8 +75,8 @@ public class PlayerCont : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-      
-        //this.transform.localScale = new Vector3(10, 10, 10);
+
+        this.transform.localScale = new Vector3(10, 10, 10);
         if (respFlag == true)
         {
             this.transform.rotation = Quaternion.Euler(-90, 0, 0);
@@ -95,7 +87,7 @@ public class PlayerCont : MonoBehaviour {
         {
             if (flagR == false)
             {
-                if (respFlag == false)
+                if (flagRt == false && respFlag == false)
                 {
 
 
@@ -159,7 +151,7 @@ public class PlayerCont : MonoBehaviour {
                 {
                     transform.position += transform.forward * grv * Time.deltaTime /** 60*/;
                 }
-                if (flagR == false && Input.GetKey(KeyCode.T) || Input.GetKeyDown(KeyCode.JoystickButton2)) //Ｔを押すと反転
+                if (flagRt == false && flagR == false && Input.GetKey(KeyCode.T) || Input.GetKeyDown(KeyCode.JoystickButton2)) //Ｔを押すと反転
                 {
                     this.transform.position += transform.forward * 1;
                     flagR = true;
@@ -182,7 +174,7 @@ public class PlayerCont : MonoBehaviour {
 
 
             }
-            if (flagR == true && reversetime < 1.0f)
+            if (flagR == true && reversetime <=1.0f)
             {
       
                 reversetime += Time.deltaTime;
@@ -191,7 +183,7 @@ public class PlayerCont : MonoBehaviour {
 
             if (flagR == true)
             {
-                transform.Rotate(new Vector3(0, (0.025f * Time.deltaTime) * 4.5f, 0));
+                transform.Rotate(new Vector3(0, /*180*reversetime*/(0.025f * reversetime) * 4.5f, 0));
                
 
             }
@@ -201,23 +193,24 @@ public class PlayerCont : MonoBehaviour {
                 reversetime = 0;
                 rev += 180;
                 flagR = false;
-                skyFlag = true;
+              
                 //grv *= -1;
                 //Physics.gravity = new Vector3(0, grv, 0);
                 flagRt = true;
+                skyFlag = true;
             }
             if (flagRt == true)
             {
+               
                 timR += Time.deltaTime;
             }
             if (timR >= 3.0f)
             {
                 flagRt = false;
                 timR = 0;
-                if (fallFlag == true)
-                {
+            
                     Fall();
-                }
+                
             }
            
             if (respFlag == true)
@@ -252,6 +245,7 @@ public class PlayerCont : MonoBehaviour {
         Box.size = new Vector3(0.1f, 0.1f, 0.2f);
         this.animator.SetBool("Walk", false);
          grv = -9.81f;
+        rev = 0;
             //Physics.gravity = new Vector3(0, grv, 0);
             this.transform.position = start;
 
@@ -303,40 +297,40 @@ public class PlayerCont : MonoBehaviour {
         }
     }
 
-    public void WallRotation()
-    {
-       nowRot =this.transform.localEulerAngles;
-        if(nowRot.z <= 90+15 && nowRot.z >= 90-15)
-        {
-           //if(tempVec.x>0 && tempVec.y==0)
-           // {
-                this.transform.Rotate(-90, 90, 0);
-                wall.x-= 90;
-                wall.y += 90;
-            //}
-        }
-        if (nowRot.z >= -90 - 15 && nowRot.z <= -90 + 15)
-        {
-            if (1 == 0)
-            {
+    //public void WallRotation()
+    //{
+    //    nowRot = this.transform.localEulerAngles;
+    //    if (nowRot.z <= 90 + 15 && nowRot.z >= 90 - 15)
+    //    {
+    //        if (tempVec.x > 0 && tempVec.y == 0)
+    //        {
+    //            this.transform.Rotate(-90, 90, 0);
+    //            wall.x -= 90;
+    //            wall.y += 90;
+    //        }
+    //    }
+    //    if (nowRot.z >= -90 - 15 && nowRot.z <= -90 + 15)
+    //    {
+    //        if (1 == 0)
+    //        {
 
-            }
-        }
-        if (nowRot.z <= 0 + 15 && nowRot.z >= 0 - 15)
-        {
-            if (1 == 0)
-            {
+    //        }
+    //    }
+    //    if (nowRot.z <= 0 + 15 && nowRot.z >= 0 - 15)
+    //    {
+    //        if (1 == 0)
+    //        {
 
-            }
-        }
-        if (nowRot.z <= -180 + 15 && nowRot.z >= 180 - 15)
-        {
-            if (1 == 0)
-            {
+    //        }
+    //    }
+    //    if (nowRot.z <= -180 + 15 && nowRot.z >= 180 - 15)
+    //    {
+    //        if (1 == 0)
+    //        {
 
-            }
-        }
-    }
+    //        }
+    //    }
+    
 	public bool ClearCheck()
     	{
         return this.goalflag;
@@ -346,11 +340,5 @@ public class PlayerCont : MonoBehaviour {
     {
         return GameObject.Find("PlayerPos");
     }
-    void GameClearRender()
-    {
-        if(ClearCheck())
-        {
-            
-        }
-    }
+
 }
