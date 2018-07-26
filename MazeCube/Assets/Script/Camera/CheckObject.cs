@@ -42,7 +42,5 @@ public class CheckObject : MonoBehaviour
                 transform.localPosition = Vector3.Lerp(transform.localPosition, cameraPrePosition, cameraMoveSpeed * Time.deltaTime);
             }
         }
-        //　レイを視覚的に確認
-        Debug.DrawLine(player.position + Vector3.up, transform.position, Color.red, 0f, false);
     }
 }

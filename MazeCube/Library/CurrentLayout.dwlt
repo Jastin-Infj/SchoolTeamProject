@@ -383,20 +383,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Prehab/Chara
+    - Assets/Script/Map
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prehab/Chara
+  - Assets/Script/Map
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\takum\Desktop\SchoolTeamProject\MazeCube
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 101}
-    m_SelectedIDs: ca360000
-    m_LastClickedID: 14026
-    m_ExpandedIDs: 00000000802900007e2e000034330000e4330000e03f00007442000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 197}
+    m_SelectedIDs: 1a2c0000
+    m_LastClickedID: 11290
+    m_ExpandedIDs: 000000008e290000662e00008c2e000042330000f2330000ee3f000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -424,7 +424,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000802900007e2e000034330000e4330000e03f000074420000
+    m_ExpandedIDs: 000000008e2900008c2e000042330000f2330000ee3f000082420000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -451,7 +451,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000a6320000683200008e2b00008a2b00000a3500007ccbe8ffe6290000022a000000000000c6360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -542,7 +542,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 26d3fffff2d3ffff36d5ffff52d5ffff70d5ffff8cd5ffffe8fbffff00000000
+    m_ExpandedIDs: 427ffeff1880feff4e81feff5c81feff6c81feff7a81feffdcfbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -592,14 +592,14 @@ MonoBehaviour:
     height: 241
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 26.69354188073488
+  lastFramingTime: 191.76048137932688
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 960, y: 540, z: 0}
+    m_Target: {x: 0, y: 2, z: -5}
     speed: 2
-    m_Value: {x: 960, y: 540, z: 0}
+    m_Value: {x: 0, y: 2, z: -5}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -631,9 +631,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.11375343, y: 0.0014888971, z: -0.00017043829, w: -0.99350786}
   m_Size:
-    m_Target: 1270.138
+    m_Target: 22
     speed: 2
-    m_Value: 1270.138
+    m_Value: 22
   m_Ortho:
     m_Target: 0
     speed: 2

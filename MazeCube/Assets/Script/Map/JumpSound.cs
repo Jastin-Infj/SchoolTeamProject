@@ -82,7 +82,7 @@ public class JumpSound : MonoBehaviour {
     void OnCollisionEnter(Collision collision)
     {
         //接触判定したなら・・・
-        if (collision.gameObject.tag == "Chara" || collision.gameObject.tag == "Ball")
+        if (collision.gameObject.tag == "Chara")
         {
             this.SoundPlay();
         }
