@@ -80,6 +80,7 @@
     <Compile Include="Assets\Script\Player\WallRot.cs" />
     <Compile Include="Assets\Script\Task\ButtonCheck.cs" />
     <Compile Include="Assets\Script\Task\ToTitle.cs" />
+    <Compile Include="Assets\Script\UI\FadeController.cs" />
     <Compile Include="Assets\Script\UI\GameEnd.cs" />
     <Compile Include="Assets\Script\UI\SetTime.cs" />
     <Compile Include="Assets\Script\UI\SetTimeUI.cs" />

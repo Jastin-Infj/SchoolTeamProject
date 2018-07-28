@@ -27,7 +27,6 @@ public class CheckObject : MonoBehaviour
 
     void Update()
     {
-
         //　カメラが障害物と接触してたら障害物の場所に移動
         if (Physics.Linecast(player.position + Vector3.up, transform.position, out hit, LayerMask.GetMask("Field")))//処理を行う場合の対象オブジェクトレイヤー名を入れる
         {

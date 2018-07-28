@@ -17,7 +17,7 @@ public class PlayerCont : MonoBehaviour {
     private float addSpeed; //減加速
     private float moveCnt;
     private Vector3 vel;
-    private bool goalflag;
+    public bool goalflag;
     private Animator animator;
     private BoxCollider Box;
     private float fallCnt;
@@ -159,7 +159,7 @@ public class PlayerCont : MonoBehaviour {
                 }
 
 
-              
+
                 if (fallFlag == true)
                 {
                     fallCnt += Time.deltaTime;
@@ -168,7 +168,7 @@ public class PlayerCont : MonoBehaviour {
                 {
                     Fall();
                 }
-              
+
 
 
 
