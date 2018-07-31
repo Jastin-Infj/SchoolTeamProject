@@ -10,11 +10,12 @@ using UnityEngine.UI;
 
 public class FadeController : MonoBehaviour
 {
-    float fadeSpeed = 0.02f;        //透明度が変わるスピードを管理
+    public float fadeSpeed;         //透明度が変わるスピードを管理
     float red, green, blue, alfa;   //パネルの色、不透明度を管理
 
     public bool isFadeOut = false;  //フェードアウト処理の開始、完了を管理するフラグ
     public bool isFadeIn = false;   //フェードイン処理の開始、完了を管理するフラグ
+    private bool buttonclicked;     //ボタンが押されたかのフラグ
 
     PlayerCont playerCont;
 
@@ -25,23 +26,26 @@ public class FadeController : MonoBehaviour
         fadeImage = GetComponent<Image>();
         playerCont = GetComponent<PlayerCont>();
 
+
         red = fadeImage.color.r;
         green = fadeImage.color.g;
         blue = fadeImage.color.b;
         alfa = fadeImage.color.a;
+
+        this.buttonclicked = false;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            isFadeOut = true;
-        }
+        //if (Input.GetKeyDown(KeyCode.O))
+        //{
+        //    isFadeOut = true;
+        //}
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            isFadeIn = true;
-        }
+        //if (Input.GetKeyDown(KeyCode.I))
+        //{
+        //    isFadeIn = true;
+        //}
 
 
         //if (playerCont.goalflag)
@@ -49,18 +53,40 @@ public class FadeController : MonoBehaviour
         //    this.isFadeOut = true;
         //}
 
-        if (isFadeIn)
+        //if (isFadeIn)
+        //{
+        //    StartFadeIn();
+        //}
+
+        //if (isFadeOut)
+        //{
+        //    StartFadeOut();
+        //}
+
+        if((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.B)) && isFadeIn)
         {
-            StartFadeIn();
+            this.buttonclicked = true;
         }
 
-        if (isFadeOut)
+        if((Input.GetButtonDown("A") || Input.GetButtonDown("B")) && isFadeIn)
         {
-            StartFadeOut();
+            this.buttonclicked = true;
+        }
+
+        if(buttonclicked)
+        {
+            if(isFadeIn)
+            {
+                this.StartFadeIn();
+            }
+            if (isFadeOut)
+            {
+                this.StartFadeOut();
+            }
         }
     }
 
-    void StartFadeIn()
+    public void StartFadeIn()
     {
         alfa -= fadeSpeed;                //不透明度を徐々に下げる
         SetAlpha();                       //変更した不透明度パネルに反映する
@@ -71,7 +97,7 @@ public class FadeController : MonoBehaviour
         }
     }
 
-    void StartFadeOut()
+    public void StartFadeOut()
     {
         fadeImage.enabled = true;    // パネルの表示をオンにする
         alfa += fadeSpeed;           // 不透明度を徐々にあげる
@@ -85,5 +111,29 @@ public class FadeController : MonoBehaviour
     void SetAlpha()
     {
         fadeImage.color = new Color(red, green, blue, alfa);
+    }
+
+
+    ///<summary>
+    ///フェードイン処理が終了しているかどうかを判定します
+    /// </summary>
+    /// <returns>
+    /// 終了しているかを判定する
+    /// </returns>
+    public bool isFadein()
+    {
+        return this.alfa <= 0 ? true : false; 
+    }
+
+    
+    ///<summary>
+    ///フェードアウト処理が終了しているかどうかを判定します
+    /// </summary>
+    ///<returns>
+    ///終了しているかどうかを判定します
+    /// </returns>
+    public bool isFadeout()
+    {
+        return this.alfa >= 1 ? true : false; 
     }
 }

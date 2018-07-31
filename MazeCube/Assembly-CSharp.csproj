@@ -70,7 +70,6 @@
     <Compile Include="Assets\Script\Map\JumpSound.cs" />
     <Compile Include="Assets\Script\Map\setMap.cs" />
     <Compile Include="Assets\Script\Map\SetMaptile.cs" />
-    <Compile Include="Assets\Script\Map\toMapStage.cs" />
     <Compile Include="Assets\Script\Player\Animetion.cs" />
     <Compile Include="Assets\Script\Player\Jump.cs" />
     <Compile Include="Assets\Script\Player\NearWall.cs" />
@@ -79,6 +78,7 @@
     <Compile Include="Assets\Script\Player\Sound.cs" />
     <Compile Include="Assets\Script\Player\WallRot.cs" />
     <Compile Include="Assets\Script\Task\ButtonCheck.cs" />
+    <Compile Include="Assets\Script\Task\toMapStage.cs" />
     <Compile Include="Assets\Script\Task\ToTitle.cs" />
     <Compile Include="Assets\Script\UI\FadeController.cs" />
     <Compile Include="Assets\Script\UI\GameEnd.cs" />
