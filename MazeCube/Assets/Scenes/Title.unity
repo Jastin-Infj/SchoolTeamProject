@@ -387,6 +387,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashtime: 1
+  Fadein: 0
+  FadeOut: 1
 --- !u!1 &559743759
 GameObject:
   m_ObjectHideFlags: 0

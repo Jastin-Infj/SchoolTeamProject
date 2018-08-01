@@ -88,10 +88,10 @@
     <None Include="Assets\Resources\Font\Number\Timeshader.shader" />
     <None Include="Assets\Resources\idle\Motion\MotionFrame.txt" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/takum/Desktop/SchoolTeamProject/MazeCube/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/takum/Desktop/New Unity Project/MazeCube/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/takum/Desktop/SchoolTeamProject/MazeCube/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/takum/Desktop/New Unity Project/MazeCube/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

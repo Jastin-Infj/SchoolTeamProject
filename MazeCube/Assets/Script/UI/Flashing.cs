@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class Flashing : MonoBehaviour {
 
     public float flashtime;             //点滅時間
+    public bool Fadein;                 //フェードイン処理
+    public bool FadeOut;                //フェードアウト処理
     private Image flashingimage;        //点滅処理をするImage
     private float color_a;              //不透明度
 
@@ -19,13 +21,26 @@ public class Flashing : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        this.Flash();
+        if(Fadein)
+        {
+            this.Flash_FadeIn();
+        }
+        if(FadeOut)
+        {
+            this.Flath_FadeOut();
+        }
+        //お互いある場合は失敗させる
+        if(Fadein && FadeOut)
+        {
+            Debug.Log("フェード処理をどちらかにしてください");
+            return;
+        }
 	}
 
     /// <summary>
-    /// 点滅処理を行います
+    /// 点滅処理を行います フェードイン処理
     /// </summary>
-    void Flash()
+    void Flash_FadeIn()
     {
         if (this.color_a > 0)
         {
@@ -34,6 +49,24 @@ public class Flashing : MonoBehaviour {
         else
         {
             this.color_a = 1.0f;
+        }
+        this.flashingimage.color = new Color(this.flashingimage.color.r, this.flashingimage.color.g, this.flashingimage.color.b, this.color_a);
+    }
+
+
+
+    /// <summary>
+    /// 点滅処理を行います フェードアウト処理
+    /// </summary>
+    void Flath_FadeOut()
+    {
+        if(this.color_a < 1)
+        {
+            this.color_a += this.flashtime * Time.deltaTime;
+        }
+        else
+        {
+            this.color_a = 0.0f;
         }
         this.flashingimage.color = new Color(this.flashingimage.color.r, this.flashingimage.color.g, this.flashingimage.color.b, this.color_a);
     }

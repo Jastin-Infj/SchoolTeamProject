@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/takum/Desktop/SchoolTeamProject/MazeCube/MazeCube.exe
+C:/Users/takum/Desktop/New Unity Project/MazeCube/MazeCube.exe
 SceneListBegin?
 Assets/Scenes/Title.unity
 Assets/Scenes/MapStage.unity
@@ -165,10 +165,10 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
+c77dd25e95664482e6262f6913ea38da Assembly-CSharp.dll:.Flashing
 67b9ad78e0edce11c96d7bd5cd1ce564 Assembly-CSharp.dll:.PlayerCameraPos
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.GameEnd
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Jump
 e887fb50f00ebb0020099be95da0dbdc Assembly-CSharp.dll:.JumpSound
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ToTitle
 43cb284a72e7569dfe027fbf780acb0a Assembly-CSharp.dll:.ButtonCheck
-ba05a791224a57d5594d1d02229ee8db Assembly-CSharp.dll:.Flashing
