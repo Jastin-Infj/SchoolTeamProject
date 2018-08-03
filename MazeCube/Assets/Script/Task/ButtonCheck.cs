@@ -1,26 +1,14 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ButtonCheck : MonoBehaviour {
 
-    public string NextScece;
-
-
-	// Use this for initialization
-	void Start ()
+    //次のシーンへ飛ぶスクリプト
+    //-------------------------------------------------------------------------------------
+    //SceneChangeにアタッチしてください。
+    //-------------------------------------------------------------------------------------
+    public void StringArgFunction(string s)
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
-    //ボタンが押されたあとの処理
-    public void OnClick()
-    {
-        SceneManager.LoadScene(NextScece);
+        SceneManager.LoadScene(s); //移動先のスクリプトはユニティ側で設定
     }
 }
