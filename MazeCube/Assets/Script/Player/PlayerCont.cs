@@ -17,7 +17,7 @@ public class PlayerCont : MonoBehaviour {
     private float addSpeed; //減加速
     private float moveCnt;
     private Vector3 vel;
-    public bool goalflag;
+    private bool goalflag;
     private Animator animator;
     private BoxCollider Box;
     private float fallCnt;
@@ -76,7 +76,7 @@ public class PlayerCont : MonoBehaviour {
     void Update()
     {
 
-        this.transform.localScale = new Vector3(10, 10, 10);
+        //this.transform.localScale = new Vector3(10, 10, 10);
         if (respFlag == true)
         {
             this.transform.rotation = Quaternion.Euler(-90, 0, 0);
@@ -116,20 +116,21 @@ public class PlayerCont : MonoBehaviour {
                    
 
 
-                    this.transform.LookAt(this.transform.position + vel);
 
                     if (vel.magnitude > 0)
                     {
 
+                        this.transform.LookAt(this.transform.position + vel);
                         //Box.size = new Vector3(1.0f, 1.0f, 2.0f);
-                        this.transform.Rotate(new Vector3(-90 + rev+wall.x, rev+wall.y, 0));
+                        this.transform.Rotate(new Vector3(-90 + rev/*+wall.x*/, rev /*+ wall.y*/, 0));
+                        this.transform.Rotate(new Vector3(wall.y,  wall.y, 0));
                         this.animator.SetBool("Take", false);
                         this.animator.SetBool("Walk", true);
 
                         
                       
                         this.transform.position += vel * Time.deltaTime * 60;
-                    
+                        Debug.Log(this.transform.rotation);
 
                     }
                     else
@@ -160,14 +161,14 @@ public class PlayerCont : MonoBehaviour {
 
 
 
-                if (fallFlag == true)
-                {
-                    fallCnt += Time.deltaTime;
-                }
-                if (fallCnt >= 0.1f)
-                {
-                    Fall();
-                }
+                //if (fallFlag == true)
+                //{
+                //    fallCnt += Time.deltaTime;
+                //}
+                //if (fallCnt >= 0.1f)
+                //{
+                //    Fall();
+                //}
 
 
 
@@ -192,6 +193,7 @@ public class PlayerCont : MonoBehaviour {
             {
                 reversetime = 0;
                 rev += 180;
+                //
                 flagR = false;
               
                 //grv *= -1;
@@ -209,7 +211,7 @@ public class PlayerCont : MonoBehaviour {
                 flagRt = false;
                 timR = 0;
             
-                    Fall();
+                    //Fall();
                 
             }
            
@@ -232,23 +234,26 @@ public class PlayerCont : MonoBehaviour {
             }
             moveCnt += Time.deltaTime;
         }
-        //skyFlag = true;
+        skyFlag = true;
     }
 
 
-    
-        
 
-        public void Fall()
+
+
+    public void Fall()
         {
         this.animator.SetBool("Take", true);
-        Box.size = new Vector3(0.1f, 0.1f, 0.2f);
+        //Box.size = new Vector3(0.1f, 0.1f, 0.2f);
         this.animator.SetBool("Walk", false);
          grv = -9.81f;
         rev = 0;
-            //Physics.gravity = new Vector3(0, grv, 0);
-            this.transform.position = start;
-
+       
+        wall = new Vector3(0, 0, 0);
+        vel = wall;
+        //Physics.gravity = new Vector3(0, grv, 0);
+        this.transform.position = start + new Vector3(0, -2, 0);
+       
         //this.transform.rotation = new Vector3(0, 0, 0);
         //this.transform.rotation = Quaternion.Euler(-90, 0, 0);
         fallCnt = 0;
@@ -270,8 +275,8 @@ public class PlayerCont : MonoBehaviour {
             timR = 0;
         }
 
-
-        }
+       
+    }
         void OnCollisionStay(Collision collision)
         {
             if (fallFlag == true && collision.gameObject.tag == "Map")
@@ -284,9 +289,16 @@ public class PlayerCont : MonoBehaviour {
         {
             skyFlag =false;
         }
+        if (collision.gameObject.tag == "Map")
+        {
+
+            WallRotation();
+
+        }
     }
     void OnCollisionExit(Collision collision)
         {
+        
             if (flagRt == false && flagR == false && collision.gameObject.tag == "Map")
             {
             fallFlag = true;
@@ -297,41 +309,73 @@ public class PlayerCont : MonoBehaviour {
         }
     }
 
-    //public void WallRotation()
-    //{
-    //    nowRot = this.transform.localEulerAngles;
-    //    if (nowRot.z <= 90 + 15 && nowRot.z >= 90 - 15)
-    //    {
-    //        if (tempVec.x > 0 && tempVec.y == 0)
-    //        {
-    //            this.transform.Rotate(-90, 90, 0);
-    //            wall.x -= 90;
-    //            wall.y += 90;
-    //        }
-    //    }
-    //    if (nowRot.z >= -90 - 15 && nowRot.z <= -90 + 15)
-    //    {
-    //        if (1 == 0)
-    //        {
-
-    //        }
-    //    }
-    //    if (nowRot.z <= 0 + 15 && nowRot.z >= 0 - 15)
-    //    {
-    //        if (1 == 0)
-    //        {
-
-    //        }
-    //    }
-    //    if (nowRot.z <= -180 + 15 && nowRot.z >= 180 - 15)
-    //    {
-    //        if (1 == 0)
-    //        {
-
-    //        }
-    //    }
+    public void WallRotation()
+    {
+        nowRot = this.transform.localEulerAngles;
     
-	public bool ClearCheck()
+        if (/*this.transform.localRotation.z <= 105 && this.transform.localRotation.z >= 75*/nowRot.y <= 105.0f && nowRot.y >= 75.0f)
+        {
+            if (tempVec.x > 0 && tempVec.y == 0)
+            {
+                this.transform.Rotate(-90, 0, 0);
+                wall.x-= 90;
+                //wall.z += 90;
+            }
+        }
+
+        if (/*this.transform.localRotation.z <= 105 && this.transform.localRotation.z >= 75*/nowRot.y >= -105.0f && nowRot.y <= -75.0f)
+        {
+            if (tempVec.x < 0 && tempVec.y == 0)
+            {
+                this.transform.Rotate(-90, -90, 0);
+                wall.x -= 90;
+                wall.y -= 90;
+            }
+        }
+
+        if (/*this.transform.localRotation.z <= 105 && this.transform.localRotation.z >= 75*/nowRot.y <= 15.0f && nowRot.y >= -15.0f)
+        {
+            if (tempVec.z < 0 && tempVec.y == 0)
+            {
+                this.transform.Rotate(0, -90, 0);
+                wall.x +=90;
+                wall.y -= 90;
+            }
+        }
+
+        if (/*this.transform.localRotation.z <= 105 && this.transform.localRotation.z >= 75*/nowRot.y <= -180+15 && nowRot.y >= -180-15)
+        {
+            if (tempVec.z >0 && tempVec.y == 0)
+            {
+                this.transform.Rotate(-90, -180, 0);
+                wall.x -= 90;
+                wall.y -= 180;
+            }
+        }
+        //}
+        //if (nowRot.z >= -90 - 15 && nowRot.z <= -90 + 15)
+        //{
+        //    if (1 == 0)
+        //    {
+
+        //    }
+        //}
+        //if (nowRot.z <= 0 + 15 && nowRot.z >= 0 - 15)
+        //{
+        //    if (1 == 0)
+        //    {
+
+        //    }
+        //}
+        //if (nowRot.z <= -180 + 15 && nowRot.z >= 180 - 15)
+        //{
+        //    if (1 == 0)
+        //    {
+
+        //    }
+        //}
+    }
+            public bool ClearCheck()
     	{
         return this.goalflag;
     	}

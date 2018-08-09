@@ -128,7 +128,7 @@ b3153896634acf9a1f06210f3f1f20d3 Assembly-CSharp.dll:.BallController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.WallRot
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Rotation
 2f9e4fe8dabeb74938ac4bcab368f6f2 Assembly-CSharp.dll:.SetTimeUI
-5a21ca2d66cebfa9ba5007107fe29c65 Assembly-CSharp.dll:.PlayerCont
+806cfb13540d5d9a13aec6d3d58f6d3a Assembly-CSharp.dll:.PlayerCont
 6a0f435584e55da445b28b17491c2a4f Assembly-CSharp.dll:.setMap
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Sound
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.StageSelect
