@@ -123,7 +123,7 @@ public class PlayerCont : MonoBehaviour {
                         this.transform.LookAt(this.transform.position + vel);
                         //Box.size = new Vector3(1.0f, 1.0f, 2.0f);
                         this.transform.Rotate(new Vector3(-90 + rev/*+wall.x*/, rev /*+ wall.y*/, 0));
-                        this.transform.Rotate(new Vector3(wall.y,  wall.y, 0));
+                        //this.transform.Rotate(new Vector3(wall.x,  wall.y, 0));
                         this.animator.SetBool("Take", false);
                         this.animator.SetBool("Walk", true);
 
@@ -161,14 +161,14 @@ public class PlayerCont : MonoBehaviour {
 
 
 
-                //if (fallFlag == true)
-                //{
-                //    fallCnt += Time.deltaTime;
-                //}
-                //if (fallCnt >= 0.1f)
-                //{
-                //    Fall();
-                //}
+                if (fallFlag == true)
+                {
+                    fallCnt += Time.deltaTime;
+                }
+                if (fallCnt >= 0.1f)
+                {
+                    Fall();
+                }
 
 
 
@@ -210,9 +210,9 @@ public class PlayerCont : MonoBehaviour {
             {
                 flagRt = false;
                 timR = 0;
-            
-                    //Fall();
-                
+
+                Fall();
+
             }
            
             if (respFlag == true)
@@ -318,8 +318,9 @@ public class PlayerCont : MonoBehaviour {
             if (tempVec.x > 0 && tempVec.y == 0)
             {
                 this.transform.Rotate(-90, 0, 0);
-                wall.x-= 90;
-                //wall.z += 90;
+                wall.x=- 90;
+                this.transform.rotation = Quaternion.Euler(-90+wall.x,wall.y, wall.z);
+                wall.z = 90;
             }
         }
 
