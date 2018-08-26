@@ -62,7 +62,7 @@ public class PlayerCont : MonoBehaviour {
         grv = -9.81f;
         vel = new Vector3();
         tempVec = vel;
-       timR = 0;
+        timR = 0;
         flagR = false;
         skyFlag = true;
         nowRot = new Vector3();
@@ -80,7 +80,6 @@ public class PlayerCont : MonoBehaviour {
         if (respFlag == true)
         {
             this.transform.rotation = Quaternion.Euler(-90, 0, 0);
-
         }
 
         if (goalflag == false)
