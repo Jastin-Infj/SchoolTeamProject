@@ -10,7 +10,6 @@ public class PlayerCameraPos : MonoBehaviour
     //-------------------------------------------------------------------------------------
     //変数定義
     public GameObject objcamera; //プレイヤカメラ
-    public GameObject objPos;    //プレイヤ座標
     private GameObject obj;      //プレイヤキャラクタ
 
     void Start()
@@ -22,17 +21,14 @@ public class PlayerCameraPos : MonoBehaviour
 
     void Update()
     {
-       
+        objcamera.transform.rotation = Quaternion.Euler(obj.transform.rotation.x, obj.transform.rotation.y, obj.transform.rotation.z);
+        objcamera.transform.position = obj.transform.position;
+        objcamera.transform.position += new Vector3(0, 0, -5);
     }
 
     private GameObject objObjectFind()
     {
         return GameObject.Find("Chara(Clone)");
-    }
-
-    public Vector3 GetPosition()
-    {
-        return this.objPos.transform.position;
     }
 }
 

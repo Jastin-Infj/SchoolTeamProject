@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 移動機能クラス
@@ -31,7 +32,8 @@ public class Movefeature : MonoBehaviour {
     private State state;         //ステート状態
     private PlayerCameraPos playerCameraPos;     //カメラの位置を取得するクラス
     private bool respawnnow;     //リスポーンしてきた？
-    private Rigidbody rigidbody;
+    private Rigidbody Rigidbody;
+    private bool clearCheck;
 
     public  bool camerasetflag;  //カメラを設置するか？
 
@@ -42,20 +44,27 @@ public class Movefeature : MonoBehaviour {
     }
 
 
+
+
     // Use this for initialization
     void Start ()
     {
         this.playerCameraPos = GetComponent<PlayerCameraPos>();
         this.state = State.Normal;
-        this.rigidbody = GetComponent<Rigidbody>();
+        this.Rigidbody = GetComponent<Rigidbody>();
         this.respwonPos = this.gameObject.transform.position;
         this.respawnnow = true;
+        this.clearCheck = false;
         this.angle = Angle.UP;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
+        if(this.clearCheck)
+        {
+            SceneManager.LoadScene("Result");
+        }
         //カメラの位置と同じにする
         this.ChangePostoCameraPos();
 
@@ -80,6 +89,12 @@ public class Movefeature : MonoBehaviour {
                 break;
         };
 	}
+
+    public Quaternion Getrotation()
+    {
+        return this.transform.rotation;
+    }
+
 
     private void JoykeyMove()
     {
@@ -172,17 +187,22 @@ public class Movefeature : MonoBehaviour {
     {
         if(this.camerasetflag)
         {
-            this.gameObject.transform.position = playerCameraPos.GetPosition();
+            
         }
+    }
+
+    public bool ClearCheck()
+    {
+        return this.clearCheck;
     }
 
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Map" || collision.gameObject.tag == "Goal")
         {
-            if(this.gameObject.transform.position.y > 0)
+            if (this.gameObject.transform.position.y > 0)
             {
-                if(this.state != State.Wall)
+                if (this.state != State.Wall)
                 {
                     this.state = State.Normal;
                 }
@@ -197,13 +217,18 @@ public class Movefeature : MonoBehaviour {
             this.transform.rotation = Quaternion.Euler(0, (int)this.angle * 90, 90 + (int)this.angle * 90);
             this.state = State.Wall;
         }
+
+        if(collision.gameObject.tag == "Goal")
+        {
+            this.clearCheck = true;
+        }
     }
     private void OnCollisionExit(Collision collision)
     {
         if(collision.gameObject.tag == "Wall")
         {
             this.transform.rotation = Quaternion.Euler(-90, 0, 0);
-            this.rigidbody.useGravity = true;
+            this.Rigidbody.useGravity = true;
             this.state = State.Normal;
         }
     }
@@ -220,7 +245,7 @@ public class Movefeature : MonoBehaviour {
 
     private void FallMove()
     {
-        this.rigidbody.useGravity = false;
+        this.Rigidbody.useGravity = false;
         if(this.angle == Angle.LEFT)        //右から左
         {
             if (Input.GetAxisRaw("Vertical") < 0)

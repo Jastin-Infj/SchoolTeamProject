@@ -295,7 +295,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
-  player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
   ball: {fileID: 1324782433211548, guid: 22cd47617eb005a4292e125d8426b697, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
@@ -310,49 +310,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 89ccc51ad4824b545adc6ab65c78e7d4, type: 2}
   filePath: Tutorial
   number: 7
---- !u!1 &338531607
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 338531609}
-  - component: {fileID: 338531608}
-  m_Layer: 0
-  m_Name: PlayerPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &338531608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 338531607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d4a76fc8eae47640b0555ecb25c134a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objcamera: {fileID: 1146230807}
-  objPos: {fileID: 338531607}
---- !u!4 &338531609
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 338531607}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1146230808}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &418029564
 Prefab:
   m_ObjectHideFlags: 0
@@ -510,7 +467,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
-  player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
   ball: {fileID: 1329371109517188, guid: 34b9b7fe7e003de4ea09e3827d3b9f04, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
@@ -655,7 +612,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
-  player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
   ball: {fileID: 1635479689679244, guid: 844fda9124981354698fbaaa7f81d565, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
@@ -827,7 +784,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
-  player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
   ball: {fileID: 1635479689679244, guid: 844fda9124981354698fbaaa7f81d565, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
@@ -1431,12 +1388,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1146230807}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: -5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
-  m_Father: {fileID: 338531609}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &1146230809
 AudioListener:
@@ -1496,11 +1453,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1146230807}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34660763ee7882e4e8e63328e7552f89, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d4a76fc8eae47640b0555ecb25c134a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraPrePosition: {x: 0, y: 0, z: 0}
-  cameraMoveSpeed: 3
+  objcamera: {fileID: 1146230807}
 --- !u!224 &1257622748 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224534467194125552, guid: b610ebbd98a48af47a490322e8b60f9c,
@@ -1549,7 +1505,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
-  player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
   ball: {fileID: 1324782433211548, guid: 22cd47617eb005a4292e125d8426b697, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
@@ -1742,7 +1698,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
-  player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
   ball: {fileID: 1329371109517188, guid: 34b9b7fe7e003de4ea09e3827d3b9f04, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
@@ -1955,6 +1911,12 @@ Prefab:
       propertyPath: counttime
       value: 720
       objectReference: {fileID: 0}
+    - target: {fileID: 114540946159541156, guid: 2d189c79dcd70664caa33891dec33c1f,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 114857570445935166, guid: 2e632d405d641b346accf7fdf4d37e5d,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 114964927023232434, guid: 2d189c79dcd70664caa33891dec33c1f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2d189c79dcd70664caa33891dec33c1f, type: 2}
@@ -2225,7 +2187,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
-  player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
   ball: {fileID: 1635479689679244, guid: 844fda9124981354698fbaaa7f81d565, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
@@ -2327,7 +2289,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
-  player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
   ball: {fileID: 1329371109517188, guid: 34b9b7fe7e003de4ea09e3827d3b9f04, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
@@ -2385,7 +2347,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
-  player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
   ball: {fileID: 1324782433211548, guid: 22cd47617eb005a4292e125d8426b697, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
@@ -2443,7 +2405,7 @@ MonoBehaviour:
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
   wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
-  player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
+  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
   ball: {fileID: 1635479689679244, guid: 844fda9124981354698fbaaa7f81d565, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}

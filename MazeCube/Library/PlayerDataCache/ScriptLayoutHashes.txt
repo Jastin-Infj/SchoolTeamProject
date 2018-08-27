@@ -112,7 +112,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 3f32f08a64daf40b09ed864d96fe3840 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
-8b84749c11636cc6acd4608a2522ece1 Assembly-CSharp.dll:.SetTime
+d5ed94f30dcf0d32ad9a061ebaa9d83c Assembly-CSharp.dll:.SetTime
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 c855ba79cd3021555b919bcaf424be8f Assembly-CSharp.dll:.SetMaptile
 604114b718831b5e34f537ac97c8e247 Assembly-CSharp.dll:.MapCameraPos
@@ -129,8 +129,9 @@ b3153896634acf9a1f06210f3f1f20d3 Assembly-CSharp.dll:.BallController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Rotation
 2f9e4fe8dabeb74938ac4bcab368f6f2 Assembly-CSharp.dll:.SetTimeUI
 806cfb13540d5d9a13aec6d3d58f6d3a Assembly-CSharp.dll:.PlayerCont
-6a0f435584e55da445b28b17491c2a4f Assembly-CSharp.dll:.setMap
+00e730e514c8313dfc1f6e2a05a1469a Assembly-CSharp.dll:.setMap
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Sound
+071faf6082dbb33605060e178da6a739 Assembly-CSharp.dll:.Movefeature
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.StageSelect
 68a702702407ade6743f63cc94bb34a5 Assembly-CSharp.dll:.toMapStage
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
@@ -165,9 +166,10 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.WallCheck
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 c77dd25e95664482e6262f6913ea38da Assembly-CSharp.dll:.Flashing
-67b9ad78e0edce11c96d7bd5cd1ce564 Assembly-CSharp.dll:.PlayerCameraPos
+14b70e4897bbb6f14c33608b3678ce8e Assembly-CSharp.dll:.PlayerCameraPos
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.GameEnd
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Jump
 e887fb50f00ebb0020099be95da0dbdc Assembly-CSharp.dll:.JumpSound
