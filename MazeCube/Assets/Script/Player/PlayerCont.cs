@@ -19,7 +19,6 @@ public class PlayerCont : MonoBehaviour {
     private Vector3 vel;
     private bool goalflag;
     private Animator animator;
-    private BoxCollider Box;
     private float fallCnt;
     private bool fallFlag;
     private bool respFlag;
@@ -49,7 +48,6 @@ public class PlayerCont : MonoBehaviour {
         this.plCamera = GetComponent<GameObject>();
         this.plCamera = CameraFind();
 
-        Box =GetComponent<BoxCollider>();
         animator = GetComponent<Animator>();
         addSpeed = 0;
         goalflag = false;
@@ -120,7 +118,6 @@ public class PlayerCont : MonoBehaviour {
                     {
 
                         this.transform.LookAt(this.transform.position + vel);
-                        //Box.size = new Vector3(1.0f, 1.0f, 2.0f);
                         this.transform.Rotate(new Vector3(-90 + rev/*+wall.x*/, rev /*+ wall.y*/, 0));
                         //this.transform.Rotate(new Vector3(wall.x,  wall.y, 0));
                         this.animator.SetBool("Take", false);
@@ -137,7 +134,6 @@ public class PlayerCont : MonoBehaviour {
                         this.animator.SetBool("Walk", false);
 
                         this.animator.SetBool("Take", true);
-                        //Box.size = new Vector3(0.1f, 0.1f, 0.2f);
 
 
                     }
@@ -243,9 +239,8 @@ public class PlayerCont : MonoBehaviour {
     public void Fall()
         {
         this.animator.SetBool("Take", true);
-        //Box.size = new Vector3(0.1f, 0.1f, 0.2f);
         this.animator.SetBool("Walk", false);
-         grv = -9.81f;
+        grv = -9.81f;
         rev = 0;
        
         wall = new Vector3(0, 0, 0);

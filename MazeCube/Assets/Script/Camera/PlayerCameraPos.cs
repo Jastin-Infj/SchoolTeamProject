@@ -22,17 +22,23 @@ public class PlayerCameraPos : MonoBehaviour
 
     void Update()
     {
-       objPos.transform.position = obj.transform.position;
-       if (Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.Z)) //BボタンまたはキーボードZキーが押された場合
-         {
-            objPos.transform.rotation = obj.transform.rotation;  //プレイヤ向きを取得
-            this.transform.Rotate(new Vector3(90, 0, 0));
-         }
-        
+       
     }
 
     private GameObject objObjectFind()
     {
         return GameObject.Find("Chara(Clone)");
     }
+
+    public Vector3 GetPosition()
+    {
+        return this.objPos.transform.position;
+    }
 }
+
+
+//if (Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.Z)) //BボタンまたはキーボードZキーが押された場合
+//         {
+//            objPos.transform.rotation = obj.transform.rotation;  //プレイヤ向きを取得
+//            this.transform.Rotate(new Vector3(90, 0, 0));
+//         }

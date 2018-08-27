@@ -17,14 +17,11 @@ public class FadeController : MonoBehaviour
     public bool isFadeIn = false;   //フェードイン処理の開始、完了を管理するフラグ
     private bool buttonclicked;     //ボタンが押されたかのフラグ
 
-    PlayerCont playerCont;
-
     Image fadeImage;                //透明度を変更するパネルのイメージ
 
     void Start()
     {
         fadeImage = GetComponent<Image>();
-        playerCont = GetComponent<PlayerCont>();
 
 
         red = fadeImage.color.r;
@@ -37,32 +34,6 @@ public class FadeController : MonoBehaviour
 
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.O))
-        //{
-        //    isFadeOut = true;
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.I))
-        //{
-        //    isFadeIn = true;
-        //}
-
-
-        //if (playerCont.goalflag)
-        //{
-        //    this.isFadeOut = true;
-        //}
-
-        //if (isFadeIn)
-        //{
-        //    StartFadeIn();
-        //}
-
-        //if (isFadeOut)
-        //{
-        //    StartFadeOut();
-        //}
-
         if((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.B)) && isFadeIn)
         {
             this.buttonclicked = true;
