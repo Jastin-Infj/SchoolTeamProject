@@ -61,15 +61,15 @@ public class SetTime : MonoBehaviour
             this.GetComponent<Text>().text = counttime.ToString("F0");
 
 
-            //ゲーム状況を確認する
-            if (ClearCheck())
-            {
-                this.clear.enabled = true;
-            }
-            else
-            {
-                this.gameover.enabled = false;
-            }
+            ////ゲーム状況を確認する
+            //if (ClearCheck())
+            //{
+            //    this.clear.enabled = true;
+            //}
+            //else
+            //{
+            //    this.gameover.enabled = false;
+            //}
         }
         this.CountTimeStringtoInt((int)counttime);
     }
@@ -81,10 +81,10 @@ public class SetTime : MonoBehaviour
     /// <returns>
     /// クリア状況
     /// </returns>
-    private bool ClearCheck()
-    {
-        return this.player.ClearCheck();
-    }
+    //private bool ClearCheck()
+    //{
+    //    //return this.player.ClearCheck();
+    //}
 
     /// <summary>
     /// カウントダウンカウントを文字列にしてImageに適用させる

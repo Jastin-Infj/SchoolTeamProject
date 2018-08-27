@@ -72,7 +72,6 @@
     <Compile Include="Assets\Script\Map\setMap.cs" />
     <Compile Include="Assets\Script\Map\SetMaptile.cs" />
     <Compile Include="Assets\Script\Player\Animetion.cs" />
-    <Compile Include="Assets\Script\Player\HitWall.cs" />
     <Compile Include="Assets\Script\Player\Jump.cs" />
     <Compile Include="Assets\Script\Player\Movefeature.cs" />
     <Compile Include="Assets\Script\Player\NearWall.cs" />

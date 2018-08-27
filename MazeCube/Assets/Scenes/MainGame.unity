@@ -294,6 +294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
+  wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
   ball: {fileID: 1324782433211548, guid: 22cd47617eb005a4292e125d8426b697, type: 2}
   mate:
@@ -508,6 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
+  wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
   ball: {fileID: 1329371109517188, guid: 34b9b7fe7e003de4ea09e3827d3b9f04, type: 2}
   mate:
@@ -652,6 +654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
+  wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
   ball: {fileID: 1635479689679244, guid: 844fda9124981354698fbaaa7f81d565, type: 2}
   mate:
@@ -823,6 +826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
+  wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
   ball: {fileID: 1635479689679244, guid: 844fda9124981354698fbaaa7f81d565, type: 2}
   mate:
@@ -1476,6 +1480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
+  wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
   ball: {fileID: 1324782433211548, guid: 22cd47617eb005a4292e125d8426b697, type: 2}
   mate:
@@ -1667,6 +1672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
+  wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
   ball: {fileID: 1329371109517188, guid: 34b9b7fe7e003de4ea09e3827d3b9f04, type: 2}
   mate:
@@ -2149,6 +2155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
+  wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
   ball: {fileID: 1635479689679244, guid: 844fda9124981354698fbaaa7f81d565, type: 2}
   mate:
@@ -2250,6 +2257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
+  wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
   ball: {fileID: 1329371109517188, guid: 34b9b7fe7e003de4ea09e3827d3b9f04, type: 2}
   mate:
@@ -2307,6 +2315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
+  wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
   ball: {fileID: 1324782433211548, guid: 22cd47617eb005a4292e125d8426b697, type: 2}
   mate:
@@ -2364,6 +2373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createObject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
+  wallObject: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   player: {fileID: 1358958972299226, guid: 0d1721f050ea205418d31eaa313e721b, type: 2}
   ball: {fileID: 1635479689679244, guid: 844fda9124981354698fbaaa7f81d565, type: 2}
   mate:

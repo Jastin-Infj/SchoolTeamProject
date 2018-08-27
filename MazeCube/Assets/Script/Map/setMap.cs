@@ -10,6 +10,7 @@ public class setMap : MonoBehaviour
 {
     //生成するオブジェクト
     public GameObject createObject;
+    public GameObject wallObject;
     public GameObject player;
     public GameObject ball;
 
@@ -24,6 +25,7 @@ public class setMap : MonoBehaviour
     private float CubeOffset = 2.54f;
     private int MapsizeX = 10;
     private int MapsizeZ = 10;
+
 
     private TextAsset textAsset;
 
@@ -62,7 +64,7 @@ public class setMap : MonoBehaviour
                 {
                     continue;
                 }
-                this.JudgeCreate(data[z * 10 + x], createpos);
+                this.JudgeCreate(data[z * 10 + x],createpos);
             }
         }
     }
@@ -77,6 +79,12 @@ public class setMap : MonoBehaviour
                 red.transform.position = vector3;
                 red.GetComponent<Renderer>().material = mate[0];
                 break;
+            case "rw":
+                GameObject redwall = Instantiate(this.wallObject) as GameObject;
+                //座標の変換する
+                redwall.transform.position = vector3;
+                redwall.GetComponent<Renderer>().material = mate[0];
+                break;
             case "g":
                 //複製する
                 GameObject green = Instantiate(this.createObject) as GameObject;
@@ -84,11 +92,23 @@ public class setMap : MonoBehaviour
                 green.transform.position = vector3;
                 green.GetComponent<Renderer>().material = mate[1];
                 break;
+            case "gw":
+                GameObject greenwall = Instantiate(this.wallObject) as GameObject;
+                //座標の変換する
+                greenwall.transform.position = vector3;
+                greenwall.GetComponent<Renderer>().material = mate[0];
+                break;
             case "b":
                 GameObject blue = Instantiate(this.createObject) as GameObject;
                 //座標の変換する
                 blue.transform.position = vector3;
                 blue.GetComponent<Renderer>().material = mate[2];
+                break;
+            case "bw":
+                GameObject bluewall = Instantiate(this.wallObject) as GameObject;
+                //座標の変換する
+                bluewall.transform.position = vector3;
+                bluewall.GetComponent<Renderer>().material = mate[0];
                 break;
             case "y":
                 GameObject yellow = Instantiate(this.createObject) as GameObject;
@@ -96,11 +116,23 @@ public class setMap : MonoBehaviour
                 yellow.transform.position = vector3;
                 yellow.GetComponent<Renderer>().material = mate[3];
                 break;
+            case "yw":
+                GameObject yellowwall = Instantiate(this.wallObject) as GameObject;
+                //座標の変換する
+                yellowwall.transform.position = vector3;
+                yellowwall.GetComponent<Renderer>().material = mate[0];
+                break;
             case "p":
                 GameObject purple = Instantiate(this.createObject) as GameObject;
                 //座標の変換する
                 purple.transform.position = vector3;
                 purple.GetComponent<Renderer>().material = mate[4];
+                break;
+            case "pw":
+                GameObject purplewall = Instantiate(this.wallObject) as GameObject;
+                //座標の変換する
+                purplewall.transform.position = vector3;
+                purplewall.GetComponent<Renderer>().material = mate[0];
                 break;
             case "o":
                 GameObject orange = Instantiate(this.createObject) as GameObject;
@@ -108,11 +140,23 @@ public class setMap : MonoBehaviour
                 orange.transform.position = vector3;
                 orange.GetComponent<Renderer>().material = mate[5];
                 break;
+            case "ow":
+                GameObject orangewall = Instantiate(this.wallObject) as GameObject;
+                //座標の変換する
+                orangewall.transform.position = vector3;
+                orangewall.GetComponent<Renderer>().material = mate[0];
+                break;
             case "i":
                 GameObject pink = Instantiate(this.createObject) as GameObject;
                 //座標の変換する
                 pink.transform.position = vector3;
                 pink.GetComponent<Renderer>().material = mate[6];
+                break;
+            case "iw":
+                GameObject pinkwall = Instantiate(this.wallObject) as GameObject;
+                //座標の変換する
+                pinkwall.transform.position = vector3;
+                pinkwall.GetComponent<Renderer>().material = mate[0];
                 break;
             case "l":
                 GameObject lime = Instantiate(this.createObject) as GameObject;
@@ -120,11 +164,23 @@ public class setMap : MonoBehaviour
                 lime.transform.position = vector3;
                 lime.GetComponent<Renderer>().material = mate[7];
                 break;
+            case "lw":
+                GameObject limewall = Instantiate(this.wallObject) as GameObject;
+                //座標の変換する
+                limewall.transform.position = vector3;
+                limewall.GetComponent<Renderer>().material = mate[0];
+                break;
             case "L":
                 GameObject lightblue = Instantiate(this.createObject) as GameObject;
                 //座標の変換する
                 lightblue.transform.position = vector3;
                 lightblue.GetComponent<Renderer>().material = mate[8];
+                break;
+            case "Lw":
+                GameObject lightbluewall = Instantiate(this.wallObject) as GameObject;
+                //座標の変換する
+                lightbluewall.transform.position = vector3;
+                lightbluewall.GetComponent<Renderer>().material = mate[0];
                 break;
             case "s":
                 //座標の変換する
