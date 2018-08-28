@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class Movefeature : MonoBehaviour {
 
     public float moveSpeed;     //移動速度
+    private Vector3 gravity;    //重力方向
 
     private enum State
     {
@@ -56,6 +57,7 @@ public class Movefeature : MonoBehaviour {
         this.respawnnow = true;
         this.clearCheck = false;
         this.angle = Angle.UP;
+        this.gravity = new Vector3(0, 9.81f, 0);
 	}
 	
 	// Update is called once per frame
@@ -75,10 +77,12 @@ public class Movefeature : MonoBehaviour {
                 {
                     this.state = State.Fall;
                 }
+                this.Rigidbody.useGravity = true;
                 this.JoykeyMove();
                 break;
             case State.Fall:
                 this.RespawnTimeCnt();
+                this.Rigidbody.useGravity = false;
                 break;
             case State.Res:
                 this.ResetPos();
@@ -88,6 +92,7 @@ public class Movefeature : MonoBehaviour {
                 this.FallMove();
                 break;
         };
+        Debug.Log(this.state);
 	}
 
     public Quaternion Getrotation()
@@ -187,7 +192,7 @@ public class Movefeature : MonoBehaviour {
     {
         if(this.camerasetflag)
         {
-            
+            //未定
         }
     }
 
@@ -225,13 +230,12 @@ public class Movefeature : MonoBehaviour {
     }
     private void OnCollisionExit(Collision collision)
     {
-        if(collision.gameObject.tag == "Wall")
-        {
-            this.transform.rotation = Quaternion.Euler(-90, 0, 0);
-            this.Rigidbody.useGravity = true;
-            this.state = State.Normal;
-        }
+       
     }
+
+    /// <summary>
+    /// リスポーン状態になってからの座標修正
+    /// </summary>
     private void ResetPos()
     {
         this.respawnnow = true;
@@ -246,20 +250,24 @@ public class Movefeature : MonoBehaviour {
     private void FallMove()
     {
         this.Rigidbody.useGravity = false;
-        if(this.angle == Angle.LEFT)        //右から左
+        if (this.angle == Angle.LEFT)        //右から左
         {
             if (Input.GetAxisRaw("Vertical") < 0)
             {
                 this.transform.rotation = Quaternion.Euler(0, 90 * (int)angle, 180);
                 this.gameObject.transform.position += this.MoveDown();
+                this.Fall(true);
             }
             else if (Input.GetAxisRaw("Vertical") > 0)
             {
                 this.transform.rotation = Quaternion.Euler(0, 90 * (int)angle, 180);
                 this.gameObject.transform.position += this.MoveUP();
+                this.Fall(true);
             }
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
+                this.Rigidbody.AddForce(-this.gravity, ForceMode.Acceleration);
+                this.Fall(false);
                 this.gameObject.transform.position += this.MoveRight();
             }
         }
@@ -269,6 +277,8 @@ public class Movefeature : MonoBehaviour {
             {
                 this.transform.rotation = Quaternion.Euler(0, -90, 180);
                 this.gameObject.transform.position += this.MoveDown();
+                Physics.gravity = this.gravity;
+                this.Rigidbody.AddForce(this.gravity, ForceMode.Acceleration);
             }
             else if (Input.GetAxisRaw("Vertical") > 0)
             {
@@ -286,7 +296,6 @@ public class Movefeature : MonoBehaviour {
             {
                 this.transform.rotation = Quaternion.Euler(-180, 0, 0);
                 this.gameObject.transform.position += this.MoveDown();
-                
             }
             else if (Input.GetAxisRaw("Vertical") > 0)
             {
@@ -325,6 +334,19 @@ public class Movefeature : MonoBehaviour {
             {
                 this.gameObject.transform.position += this.MoveLeft();
             }
+        }
+    }
+
+    private void Fall(bool wall_flag)
+    {
+        if(wall_flag)
+        {
+            Physics.gravity = this.gravity;   
+        }
+        else
+        {
+            Physics.gravity = -this.gravity;
+            //this.Rigidbody.AddForce(gravity, ForceMode.Acceleration);
         }
     }
 }
