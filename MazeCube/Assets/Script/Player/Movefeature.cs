@@ -3,13 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+///@atuthor　日本電子専門学校　ゲーム制作科  横尾拓実(takumiyokoo@gmail.com)
+///@version  1.0 
+///2018/09/05 10:20 
+
+//@brief ブックマークを付けているのは仮処理
+
 /// <summary>
 /// 移動機能クラス
 /// </summary>
-public class Movefeature : MonoBehaviour {
+public class Movefeature : MonoBehaviour
+{
 
-    public float moveSpeed;     //移動速度
-    private Vector3 gravity;    //重力方向
+    public float moveSpeed;     　　//移動速度
+    private Vector3 gravity;    　　//重力方向
+    public HitWall hitWall;     　　//範囲用当たり判定
+    private bool rotationFlag;  　　//回転度
+
+    public HitWall rangeWallCheck;  //周囲の壁判定
 
     private enum State
     {
@@ -27,18 +38,24 @@ public class Movefeature : MonoBehaviour {
         RIGHT,      //右 
     };
 
-    private Angle angle;            //アングル
-    private Vector3 respwonPos;
-    private float respawnTime;   //落下してからどれくらいの時間かを計測する
-    private State state;         //ステート状態
+    private Angle           angle;               //アングル
+    private Vector3         respwonPos;          //リスポーン座標
+    private float           respawnTime;         //落下してからどれくらいの時間かを計測する
+    private State           state;               //ステート状態
     private PlayerCameraPos playerCameraPos;     //カメラの位置を取得するクラス
-    private bool respawnnow;     //リスポーンしてきた？
-    private Rigidbody Rigidbody;
-    private bool clearCheck;
+    private bool            respawnnow;          //リスポーンしてきた？
+    private Rigidbody       Rigidbody;           //重力機能
+    private bool            clearCheck;          //クリア判定
 
-    public  bool camerasetflag;  //カメラを設置するか？
+    public bool camerasetflag;                   //カメラを設置するか？
 
-    
+
+    /// <summary>
+    /// コンストラクタ
+    /// </summary>
+    /// <param name="speed">
+    /// 移動速度
+    /// </param>
     Movefeature(float speed)
     {
         this.moveSpeed = speed;
@@ -48,7 +65,7 @@ public class Movefeature : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         this.playerCameraPos = GetComponent<PlayerCameraPos>();
         this.state = State.Normal;
@@ -58,12 +75,13 @@ public class Movefeature : MonoBehaviour {
         this.clearCheck = false;
         this.angle = Angle.UP;
         this.gravity = new Vector3(0, 9.81f, 0);
-	}
-	
-	// Update is called once per frame
-	void Update ()
+        this.rotationFlag = false;
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-        if(this.clearCheck)
+        if (this.clearCheck)
         {
             SceneManager.LoadScene("Result");
         }
@@ -73,67 +91,132 @@ public class Movefeature : MonoBehaviour {
         switch (this.state)
         {
             case State.Normal:
-                if(this.FallCheck())
+                if(rotationFlag)
+                {
+                    this.RotateLeft();
+                }
+                //壁判定
+                if (this.hitWall.HitFlag())
+                {
+                    this.rotationFlag = true;
+                }
+                //落ちているか
+                if (this.FallCheck())
                 {
                     this.state = State.Fall;
                 }
-                this.Rigidbody.useGravity = true;
-                this.JoykeyMove();
+                //回転中は中止
+                if (!rotationFlag)
+                {
+                    this.JoykeyMove();
+                    this.Rigidbody.useGravity = true;
+                }
                 break;
             case State.Fall:
                 this.RespawnTimeCnt();
-                this.Rigidbody.useGravity = false;
+                this.Rigidbody.useGravity = true;
                 break;
             case State.Res:
                 this.ResetPos();
                 this.state = State.Normal;
                 break;
             case State.Wall:
+                if (!this.hitWall.HitFlag())
+                {
+                    this.state = State.Normal;
+                }
                 this.FallMove();
                 break;
         };
         Debug.Log(this.state);
-	}
+    }
 
+
+    /// <summary>
+    /// 回転度を返す
+    /// </summary>
+    /// <returns>
+    /// 回転度
+    /// </returns>
     public Quaternion Getrotation()
     {
         return this.transform.rotation;
     }
 
 
+    /// <summary>
+    /// ゲームパッドでの移動
+    /// </summary>
     private void JoykeyMove()
     {
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
-            this.transform.rotation = Quaternion.Euler(-90, 0,-90);
+            //移動
             this.gameObject.transform.position += this.MoveLeft();
-            this.angle = Angle.LEFT;
+
+            this.gameObject.transform.rotation = Quaternion.Euler(-90, 0, -90);
+
+            //移動時回転
+            if (this.gameObject.transform.localEulerAngles.z < 90)
+            {
+                
+            }
+            else if (this.gameObject.transform.localEulerAngles.z > 270)
+            {
+               
+            }
+
+            //方向を変更
+            if (this.gameObject.transform.localEulerAngles.z == 0)
+            {
+                this.angle = Angle.LEFT;
+            }
 
         }
         else if(Input.GetAxisRaw("Horizontal") > 0)
         {
-            this.transform.rotation = Quaternion.Euler(-90, 0, 90);
+            //移動
             this.gameObject.transform.position += this.MoveRight();
+
+
             this.angle = Angle.RIGHT;
+
+            this.gameObject.transform.rotation = Quaternion.Euler(-90, 0, 90);
         }
-        if(Input.GetAxisRaw("Vertical") < 0)
+
+
+        if (Input.GetAxisRaw("Vertical") < 0)
         {
-            this.transform.rotation = Quaternion.Euler(-90, 0, 180);
+            //移動
             this.gameObject.transform.position += this.MoveDown();
-            this.angle = Angle.DOWN;
+
+            //方向を変更
+            if (this.gameObject.transform.localEulerAngles.z == 270 || this.gameObject.transform.localEulerAngles.z == -90)
+            {
+                this.angle = Angle.DOWN;
+                return;
+            }
+
+
+            
+
         }
-        else if(Input.GetAxisRaw("Vertical") > 0)
+        else if (Input.GetAxisRaw("Vertical") > 0)
         {
-            this.transform.rotation = Quaternion.Euler(-90, 0, 0);
             this.gameObject.transform.position += this.MoveUP();
-            this.angle = Angle.UP;
+
+            if (this.transform.localEulerAngles.z == 90)
+            {
+                this.angle = Angle.UP;
+                return;
+            }
         }
-       
+        Debug.Log(this.angle);
     }
 
     private Vector3 MoveUP()
     {
-        if(this.state == State.Wall)
+        if (this.state == State.Wall)
         {
             return new Vector3(0, this.moveSpeed, 0);
         }
@@ -142,7 +225,8 @@ public class Movefeature : MonoBehaviour {
 
     private Vector3 MoveDown()
     {
-        if(this.state == State.Wall)
+
+        if (this.state == State.Wall)
         {
             return new Vector3(0, -this.moveSpeed, 0);
         }
@@ -166,12 +250,15 @@ public class Movefeature : MonoBehaviour {
     private bool CheckRespawn()
     {
         //リスポーン条件を記載する
-        return this.respawnTime >= 2.0 ? true : false; 
+        return this.respawnTime >= 2.0 ? true : false;
     }
 
+    /// <summary>
+    /// リスポーンのタイムを計算します
+    /// </summary>
     private void RespawnTimeCnt()
     {
-        if(this.respawnnow)
+        if (this.respawnnow)
         {
             if (this.CheckRespawn())
             {
@@ -183,14 +270,23 @@ public class Movefeature : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// ステートを変更します
+    /// </summary>
+    /// <param name="changestate">
+    /// 変化させたい状態
+    /// </param>
     private void ChengePlayerState(State changestate)
     {
         this.state = changestate;
     }
 
+    /// <summary>
+    /// カメラの座標をPlayerに上書きします
+    /// </summary>
     private void ChangePostoCameraPos()
     {
-        if(this.camerasetflag)
+        if (this.camerasetflag)
         {
             //未定
         }
@@ -205,6 +301,7 @@ public class Movefeature : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Map" || collision.gameObject.tag == "Goal")
         {
+            //リスポーンの判定
             if (this.gameObject.transform.position.y > 0)
             {
                 if (this.state != State.Wall)
@@ -216,21 +313,14 @@ public class Movefeature : MonoBehaviour {
     }
     private void OnCollisionEnter(Collision collision)
     {
-        //壁の場合
-        if (collision.gameObject.tag == "Wall")
-        {
-            this.transform.rotation = Quaternion.Euler(0, (int)this.angle * 90, 90 + (int)this.angle * 90);
-            this.state = State.Wall;
-        }
-
-        if(collision.gameObject.tag == "Goal")
+        if (collision.gameObject.tag == "Goal")
         {
             this.clearCheck = true;
         }
     }
     private void OnCollisionExit(Collision collision)
     {
-       
+        //未確定
     }
 
     /// <summary>
@@ -256,22 +346,23 @@ public class Movefeature : MonoBehaviour {
             {
                 this.transform.rotation = Quaternion.Euler(0, 90 * (int)angle, 180);
                 this.gameObject.transform.position += this.MoveDown();
-                this.Fall(true);
             }
             else if (Input.GetAxisRaw("Vertical") > 0)
             {
                 this.transform.rotation = Quaternion.Euler(0, 90 * (int)angle, 180);
                 this.gameObject.transform.position += this.MoveUP();
-                this.Fall(true);
             }
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
+                this.gameObject.transform.localRotation = Quaternion.Euler(-90, 0, 90);
+                this.angle = Angle.RIGHT;
+                this.state = State.Fall;
+
                 this.Rigidbody.AddForce(-this.gravity, ForceMode.Acceleration);
-                this.Fall(false);
                 this.gameObject.transform.position += this.MoveRight();
             }
         }
-        if(this.angle == Angle.RIGHT)
+        if (this.angle == Angle.RIGHT)
         {
             if (Input.GetAxisRaw("Vertical") < 0)
             {
@@ -290,7 +381,7 @@ public class Movefeature : MonoBehaviour {
                 this.gameObject.transform.position += this.MoveLeft();
             }
         }
-        if(this.angle == Angle.UP)
+        if (this.angle == Angle.UP)
         {
             if (Input.GetAxisRaw("Vertical") < 0)
             {
@@ -301,30 +392,30 @@ public class Movefeature : MonoBehaviour {
             {
                 this.transform.rotation = Quaternion.Euler(-180, 0, 0);
                 this.gameObject.transform.position += this.MoveUP();
-                
+
             }
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
                 this.gameObject.transform.position += this.MoveRight();
             }
-            else if(Input.GetAxisRaw("Horizontal") < 0)
+            else if (Input.GetAxisRaw("Horizontal") < 0)
             {
                 this.gameObject.transform.position += this.MoveLeft();
             }
         }
-        if(this.angle == Angle.DOWN)
+        if (this.angle == Angle.DOWN)
         {
             if (Input.GetAxisRaw("Vertical") < 0)
             {
                 this.transform.rotation = Quaternion.Euler(-180, -180, 0);
                 this.gameObject.transform.position += this.MoveDown();
-                
+
             }
             else if (Input.GetAxisRaw("Vertical") > 0)
             {
                 this.transform.rotation = Quaternion.Euler(-180, -180, 0);
                 this.gameObject.transform.position += this.MoveUP();
-                
+
             }
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
@@ -337,42 +428,107 @@ public class Movefeature : MonoBehaviour {
         }
     }
 
-    private void Fall(bool wall_flag)
+    void RotateDown()
     {
-        if(wall_flag)
+        ///メモ　(270,0,360)
+        
+        if(this.gameObject.transform.localEulerAngles.x == 0 && this.gameObject.transform.localEulerAngles.x == 360)
         {
-            Physics.gravity = this.gravity;   
+            this.RotateRelease();
         }
-        else
+        if (this.gameObject.transform.localEulerAngles.x >= 270 && this.gameObject.transform.localEulerAngles.x < 360)
         {
-            Physics.gravity = -this.gravity;
-            //this.Rigidbody.AddForce(gravity, ForceMode.Acceleration);
+            this.gameObject.transform.Rotate(-1, 0, 0);
         }
+        else if(this.gameObject.transform.localEulerAngles.x > 0 && this.gameObject.transform.localEulerAngles.x <= 90)
+        {
+            this.gameObject.transform.Rotate(1, 0, 0);
+        }
+    }
+
+    void RotateUp()
+    {
+        ///メモ　(-270,0,0)
+        
+        if(this.gameObject.transform.localEulerAngles.x >= 360 && this.gameObject.transform.localEulerAngles.x <= 0)
+        {
+            this.RotateRelease();
+        }
+        if(this.gameObject.transform.localEulerAngles.x >= 270 && this.gameObject.transform.localEulerAngles.x <= 0)
+        {
+            this.gameObject.transform.Rotate(-1, 0, 0);
+        }
+        else if(this.gameObject.transform.localEulerAngles.x <= 90 && this.gameObject.transform.localEulerAngles.x > 0)
+        {
+            this.gameObject.transform.Rotate(1, 0, 0);
+        }
+    }
+
+    void RotateLeft()
+    {
+        ///メモ　(270,0,270) 
+        if (this.gameObject.transform.localEulerAngles.x >= 360 - 1)
+        {
+            this.RotateRelease();
+        }
+        if (this.gameObject.transform.localEulerAngles.x >= 270 && this.gameObject.transform.localEulerAngles.x <= 360)
+        {
+            this.gameObject.transform.Rotate(-1, 0, 0);
+        }
+        else if(this.gameObject.transform.localEulerAngles.x <= 90 && this.gameObject.transform.localEulerAngles.x > 0)
+        {
+            this.gameObject.transform.Rotate(1, 0, 0);
+        }
+    }
+
+    void RotateRight()
+    {
+        ///メモ　(-90,0,90)
+        if(this.gameObject.transform.localEulerAngles.x == 90)
+        {
+            this.RotateRelease();
+        }
+        if(this.gameObject.transform.localEulerAngles.x <= 180 && this.gameObject.transform.localEulerAngles.x >= 90)
+        {
+            this.gameObject.transform.Rotate(-1, 0, 0);
+        }
+        else if(this.gameObject.transform.localEulerAngles.x > 0 && this.gameObject.transform.localEulerAngles.x <= 90)
+        {
+            this.gameObject.transform.Rotate(1, 0, 0);
+        }
+    }
+
+    void Rotatewall()
+    {
+        switch (this.angle)
+        {
+            case Angle.DOWN:
+                this.RotateDown();
+                break;
+            case Angle.LEFT:
+                this.RotateLeft();
+                break;
+            case Angle.RIGHT:
+                this.RotateRight();
+                break;
+            case Angle.UP:
+                this.RotateUp();
+                break;
+        }
+    }
+    void RotateRelease()
+    {
+        this.rotationFlag = false;
+        this.state = State.Wall;
     }
 }
 
 
-
-
-//private void KeyMove()
+//if (this.gameObject.transform.localEulerAngles.z < 0)
 //{
-//    if (Input.GetKeyDown(KeyCode.UpArrow))
-//    {
-//        this.gameObject.transform.position += this.MoveUP();
-//    }
-
-//    if (Input.GetKeyDown(KeyCode.DownArrow))
-//    {
-//        this.gameObject.transform.position += this.MoveDown();
-//    }
-
-//    if (Input.GetKeyDown(KeyCode.LeftArrow))
-//    {
-//        this.gameObject.transform.position += this.MoveLeft();
-//    }
-
-//    if (Input.GetKeyDown(KeyCode.RightArrow))
-//    {
-//        this.gameObject.transform.position += this.MoveRight();
-//    }
+//    this.transform.Rotate(0, 0, -10);
+//}
+//else if (this.gameObject.transform.localEulerAngles.z > 180)
+//{
+//    this.transform.Rotate(0, 0, 10);
 //}

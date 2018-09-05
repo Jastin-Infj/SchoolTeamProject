@@ -72,11 +72,13 @@
     <Compile Include="Assets\Script\Map\setMap.cs" />
     <Compile Include="Assets\Script\Map\SetMaptile.cs" />
     <Compile Include="Assets\Script\Player\Animetion.cs" />
+    <Compile Include="Assets\Script\Player\HitWall.cs" />
     <Compile Include="Assets\Script\Player\Jump.cs" />
     <Compile Include="Assets\Script\Player\Movefeature.cs" />
     <Compile Include="Assets\Script\Player\NearWall.cs" />
     <Compile Include="Assets\Script\Player\PlayerCont.cs" />
     <Compile Include="Assets\Script\Player\Rotation.cs" />
+    <Compile Include="Assets\Script\Player\SinCosTest.cs" />
     <Compile Include="Assets\Script\Player\Sound.cs" />
     <Compile Include="Assets\Script\Player\WallRot.cs" />
     <Compile Include="Assets\Script\Task\ButtonCheck.cs" />
@@ -90,6 +92,7 @@
     <Compile Include="Assets\Script\UI\SetTimeUI.cs" />
     <None Include="Assets\Resources\Font\Number\Timeshader.shader" />
     <None Include="Assets\Resources\idle\Motion\MotionFrame.txt" />
+    <None Include="Assets\Resources\Text\Font\Number\Timeshader.shader" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/takum/Desktop/SchoolTeamProject/MazeCube/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
