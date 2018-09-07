@@ -295,7 +295,7 @@ MonoBehaviour:
   wall: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   createobject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
-  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
+  player: {fileID: 1493194857176754, guid: b22335a447e6c2d42aad57a0952ee24d, type: 2}
   ball: {fileID: 1324782433211548, guid: 22cd47617eb005a4292e125d8426b697, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
@@ -467,7 +467,7 @@ MonoBehaviour:
   wall: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   createobject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
-  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
+  player: {fileID: 1493194857176754, guid: b22335a447e6c2d42aad57a0952ee24d, type: 2}
   ball: {fileID: 1329371109517188, guid: 34b9b7fe7e003de4ea09e3827d3b9f04, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
@@ -612,7 +612,7 @@ MonoBehaviour:
   wall: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   createobject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
-  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
+  player: {fileID: 1493194857176754, guid: b22335a447e6c2d42aad57a0952ee24d, type: 2}
   ball: {fileID: 1635479689679244, guid: 844fda9124981354698fbaaa7f81d565, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
@@ -784,7 +784,7 @@ MonoBehaviour:
   wall: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   createobject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
-  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
+  player: {fileID: 1493194857176754, guid: b22335a447e6c2d42aad57a0952ee24d, type: 2}
   ball: {fileID: 1635479689679244, guid: 844fda9124981354698fbaaa7f81d565, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
@@ -1505,7 +1505,7 @@ MonoBehaviour:
   wall: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   createobject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
-  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
+  player: {fileID: 1493194857176754, guid: b22335a447e6c2d42aad57a0952ee24d, type: 2}
   ball: {fileID: 1324782433211548, guid: 22cd47617eb005a4292e125d8426b697, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
@@ -1698,7 +1698,7 @@ MonoBehaviour:
   wall: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   createobject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
-  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
+  player: {fileID: 1493194857176754, guid: b22335a447e6c2d42aad57a0952ee24d, type: 2}
   ball: {fileID: 1329371109517188, guid: 34b9b7fe7e003de4ea09e3827d3b9f04, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
@@ -2187,7 +2187,7 @@ MonoBehaviour:
   wall: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   createobject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
-  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
+  player: {fileID: 1493194857176754, guid: b22335a447e6c2d42aad57a0952ee24d, type: 2}
   ball: {fileID: 1635479689679244, guid: 844fda9124981354698fbaaa7f81d565, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
@@ -2289,7 +2289,7 @@ MonoBehaviour:
   wall: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   createobject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
-  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
+  player: {fileID: 1493194857176754, guid: b22335a447e6c2d42aad57a0952ee24d, type: 2}
   ball: {fileID: 1329371109517188, guid: 34b9b7fe7e003de4ea09e3827d3b9f04, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
@@ -2347,7 +2347,7 @@ MonoBehaviour:
   wall: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   createobject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
-  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
+  player: {fileID: 1493194857176754, guid: b22335a447e6c2d42aad57a0952ee24d, type: 2}
   ball: {fileID: 1324782433211548, guid: 22cd47617eb005a4292e125d8426b697, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}
@@ -2405,7 +2405,7 @@ MonoBehaviour:
   wall: {fileID: 1301619090690264, guid: f581ce740f4ea6f49b388d129b1aa43a, type: 2}
   createobject: {fileID: 1301619090690264, guid: e8d8443f90825c64288ac8fb3f5149ea,
     type: 2}
-  player: {fileID: 1548863311595006, guid: 2e632d405d641b346accf7fdf4d37e5d, type: 2}
+  player: {fileID: 1493194857176754, guid: b22335a447e6c2d42aad57a0952ee24d, type: 2}
   ball: {fileID: 1635479689679244, guid: 844fda9124981354698fbaaa7f81d565, type: 2}
   mate:
   - {fileID: 2100000, guid: dc29a55c6ae7c2549807429d2aed8d22, type: 2}

@@ -6,34 +6,19 @@ public class AnimetionSize : MonoBehaviour {
 
     Animator text;
 
-    int timeCnt;
-    bool flag;
+    Vector3 scale;
+
 	// Use this for initialization
 	void Start () {
-        this.timeCnt = 0;
-        this.flag = false;
+        this.scale = this.gameObject.transform.localScale;
         text = GetComponent<Animator>();
         text.updateMode = AnimatorUpdateMode.Normal;
-        text.cullingMode = AnimatorCullingMode.AlwaysAnimate;
+        text.cullingMode = AnimatorCullingMode.CullCompletely;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        this.timeCnt++;
-        if(timeCnt % 4 != 0)
-        {
-            text.updateMode = AnimatorUpdateMode.UnscaledTime;
-        }
-        else
-        {
-            text.updateMode = AnimatorUpdateMode.UnscaledTime;
-        }
-
-        if(Input.anyKeyDown)
-        {
-            text.updateMode = AnimatorUpdateMode.Normal;
-        }
-        this.gameObject.transform.localScale = new Vector3(10, 10, 10);
+        this.gameObject.transform.localScale = this.scale;
     }
 }
