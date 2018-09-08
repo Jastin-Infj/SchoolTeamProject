@@ -19,6 +19,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 30afa8783a8bbee2e465ec9ce1efaee2 UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 30afa8783a8bbee2e465ec9ce1efaee2 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 607d64d2c4bc76ac9876e6f7b9cc7edf UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.AnimetionSize
 e2a27de0b8fa113611638e2f83634790 Assembly-CSharp.dll:.CameraController
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
@@ -131,7 +132,8 @@ b3153896634acf9a1f06210f3f1f20d3 Assembly-CSharp.dll:.BallController
 806cfb13540d5d9a13aec6d3d58f6d3a Assembly-CSharp.dll:.PlayerCont
 f81e4a2d367b2ba921ca548b5f57b98e Assembly-CSharp.dll:.setMap
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Sound
-071faf6082dbb33605060e178da6a739 Assembly-CSharp.dll:.Movefeature
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.HitWall
+cc9f76ae69870f4532f83408346437b8 Assembly-CSharp.dll:.Movefeature
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.StageSelect
 68a702702407ade6743f63cc94bb34a5 Assembly-CSharp.dll:.toMapStage
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
@@ -148,6 +150,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 3f32f08a64daf40b09ed864d96fe3840 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SinCosTest
 570ed6a5b2411ef199535f2451835d1b Assembly-CSharp.dll:.BallTest
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 f02726adeff0a3ec5905565234b372da UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController

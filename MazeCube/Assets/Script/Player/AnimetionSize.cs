@@ -12,7 +12,7 @@ public class AnimetionSize : MonoBehaviour {
 	void Start () {
         this.scale = this.gameObject.transform.localScale;
         text = GetComponent<Animator>();
-        text.updateMode = AnimatorUpdateMode.Normal;
+        text.updateMode = AnimatorUpdateMode.AnimatePhysics;
         text.cullingMode = AnimatorCullingMode.CullCompletely;
 	}
 	
