@@ -1915,7 +1915,7 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 114857570445935166, guid: 2e632d405d641b346accf7fdf4d37e5d,
+      objectReference: {fileID: 114691981947357622, guid: b22335a447e6c2d42aad57a0952ee24d,
         type: 2}
     m_RemovedComponents:
     - {fileID: 114964927023232434, guid: 2d189c79dcd70664caa33891dec33c1f, type: 2}

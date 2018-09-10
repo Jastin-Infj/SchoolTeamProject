@@ -68,6 +68,8 @@
     <Compile Include="Assets\Script\Camera\MapCameraPos.cs" />
     <Compile Include="Assets\Script\Camera\PlayerCameraPos.cs" />
     <Compile Include="Assets\Script\Camera\WallCheck.cs" />
+    <Compile Include="Assets\Script\Effect\ButtonFlashing.cs" />
+    <Compile Include="Assets\Script\Effect\SneceFade.cs" />
     <Compile Include="Assets\Script\Map\JumpSound.cs" />
     <Compile Include="Assets\Script\Map\setMap.cs" />
     <Compile Include="Assets\Script\Map\SetMaptile.cs" />
