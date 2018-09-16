@@ -36,7 +36,6 @@ public class HitWall : MonoBehaviour {
         if(collision.gameObject.tag == "Wall")
         {
             this.hitflag = false;
-            Debug.Log("戻す");
         }
         string cName = collision.gameObject.name;
         if(cName.Substring(0,4) == "Cube")

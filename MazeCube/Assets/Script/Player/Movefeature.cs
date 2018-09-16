@@ -46,6 +46,7 @@ public class Movefeature : MonoBehaviour
     private bool            respawnnow;          //リスポーンしてきた？
     private Rigidbody       Rigidbody;           //重力機能
     private bool            clearCheck;          //クリア判定
+    private Animator        fallflag;            //落下速度を変更するため
 
     public bool camerasetflag;                   //カメラを設置するか？
 
@@ -76,6 +77,7 @@ public class Movefeature : MonoBehaviour
         this.angle = Angle.UP;
         this.gravity = new Vector3(0, 9.81f, 0);
         this.rotationFlag = false;
+        this.fallflag = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -110,11 +112,13 @@ public class Movefeature : MonoBehaviour
                 {
                     this.JoykeyMove();
                     this.Rigidbody.useGravity = true;
+                    this.fallflag.applyRootMotion = false;
                 }
                 break;
             case State.Fall:
                 this.RespawnTimeCnt();
                 this.Rigidbody.useGravity = true;
+                this.fallflag.applyRootMotion = false;
                 break;
             case State.Res:
                 this.ResetPos();
@@ -123,7 +127,9 @@ public class Movefeature : MonoBehaviour
             case State.Wall:
                 if (!this.hitWall.HitFlag())
                 {
-                    this.state = State.Normal;
+                    this.rotationFlag = false;
+                    this.fallflag.applyRootMotion = false;
+                    this.state = State.Normal;   
                 }
                 this.FallMove();
                 break;
@@ -155,23 +161,8 @@ public class Movefeature : MonoBehaviour
             this.gameObject.transform.position += this.MoveLeft();
 
             this.gameObject.transform.rotation = Quaternion.Euler(-90, 0, -90);
-
-            //移動時回転
-            if (this.gameObject.transform.localEulerAngles.z < 90)
-            {
-                
-            }
-            else if (this.gameObject.transform.localEulerAngles.z > 270)
-            {
-               
-            }
-
-            //方向を変更
-            if (this.gameObject.transform.localEulerAngles.z == 0)
-            {
-                this.angle = Angle.LEFT;
-            }
-
+            
+            this.angle = Angle.LEFT;
         }
         else if(Input.GetAxisRaw("Horizontal") > 0)
         {
@@ -184,34 +175,21 @@ public class Movefeature : MonoBehaviour
             this.gameObject.transform.rotation = Quaternion.Euler(-90, 0, 90);
         }
 
-
         if (Input.GetAxisRaw("Vertical") < 0)
         {
             //移動
             this.gameObject.transform.position += this.MoveDown();
 
-            //方向を変更
-            if (this.gameObject.transform.localEulerAngles.z == 270 || this.gameObject.transform.localEulerAngles.z == -90)
-            {
-                this.angle = Angle.DOWN;
-                return;
-            }
-
-
-            
-
+            this.gameObject.transform.localRotation = Quaternion.Euler(-90, -180, 0);
+            this.angle = Angle.DOWN;
         }
         else if (Input.GetAxisRaw("Vertical") > 0)
         {
-            this.gameObject.transform.position += this.MoveUP();
+           this.gameObject.transform.position += this.MoveUP();
 
-            if (this.transform.localEulerAngles.z == 90)
-            {
-                this.angle = Angle.UP;
-                return;
-            }
+           this.gameObject.transform.localRotation = Quaternion.Euler(-90, -180, -180);
+           this.angle = Angle.UP;
         }
-        Debug.Log(this.angle);
     }
 
     private Vector3 MoveUP()
@@ -317,6 +295,7 @@ public class Movefeature : MonoBehaviour
         {
             this.clearCheck = true;
         }
+        
     }
     private void OnCollisionExit(Collision collision)
     {
@@ -362,7 +341,7 @@ public class Movefeature : MonoBehaviour
                 this.gameObject.transform.position += this.MoveRight();
             }
         }
-        if (this.angle == Angle.RIGHT)
+        else if (this.angle == Angle.RIGHT)
         {
             if (Input.GetAxisRaw("Vertical") < 0)
             {
@@ -403,19 +382,17 @@ public class Movefeature : MonoBehaviour
                 this.gameObject.transform.position += this.MoveLeft();
             }
         }
-        if (this.angle == Angle.DOWN)
+        else if (this.angle == Angle.DOWN)
         {
             if (Input.GetAxisRaw("Vertical") < 0)
             {
-                this.transform.rotation = Quaternion.Euler(-180, -180, 0);
+                this.transform.rotation = Quaternion.Euler(180, -180, 0);
                 this.gameObject.transform.position += this.MoveDown();
-
             }
             else if (Input.GetAxisRaw("Vertical") > 0)
             {
-                this.transform.rotation = Quaternion.Euler(-180, -180, 0);
+                this.transform.rotation = Quaternion.Euler(180, -180, 0);
                 this.gameObject.transform.position += this.MoveUP();
-
             }
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
