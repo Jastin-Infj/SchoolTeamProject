@@ -18,9 +18,8 @@ public class Movefeature : MonoBehaviour
     public float moveSpeed;     　　//移動速度
     private Vector3 gravity;    　　//重力方向
     public HitWall hitWall;     　　//範囲用当たり判定
+    public HitWall hitFoot;         //足元判定
     private bool rotationFlag;  　　//回転度
-
-    public HitWall rangeWallCheck;  //周囲の壁判定
 
     private enum State
     {
@@ -47,6 +46,7 @@ public class Movefeature : MonoBehaviour
     private Rigidbody       Rigidbody;           //重力機能
     private bool            clearCheck;          //クリア判定
     private Animator        fallflag;            //落下速度を変更するため
+    private bool            footflag;            //足元判定
 
     public bool camerasetflag;                   //カメラを設置するか？
 
@@ -77,63 +77,100 @@ public class Movefeature : MonoBehaviour
         this.angle = Angle.UP;
         this.gravity = new Vector3(0, 9.81f, 0);
         this.rotationFlag = false;
+        this.footflag = false;
         this.fallflag = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        State chengeState = this.state;
+
         if (this.clearCheck)
         {
             SceneManager.LoadScene("Result");
         }
-        //カメラの位置と同じにする
-        this.ChangePostoCameraPos();
-
         switch (this.state)
         {
             case State.Normal:
-                if(rotationFlag)
-                {
-                    this.RotateLeft();
-                }
                 //壁判定
-                if (this.hitWall.HitFlag())
+                if(this.hitWall.HitFlag())
                 {
                     this.rotationFlag = true;
                 }
-                //落ちているか
-                if (this.FallCheck())
+                //床判定
+                if(this.hitFoot.HitFlag())
                 {
-                    this.state = State.Fall;
+                    this.footflag = true;
+                }
+                else
+                {
+                    this.footflag = false;
+                }
+                //回転をする
+                if (rotationFlag)
+                {
+                    Debug.Log("OK");
+                    this.RotateLeft();
+                    //if (this.angle == Angle.DOWN)
+                    //{
+                    //    this.RotateDown();
+                    //}
+                    //if (this.angle == Angle.RIGHT)
+                    //{
+                    //    this.RotateRight();
+                    //}
+                    //if(this.angle == Angle.UP)
+                    //{
+                    //    this.RotateUp();
+                    //}
                 }
                 //回転中は中止
-                if (!rotationFlag)
+                if (!rotationFlag && this.footflag)
                 {
+                    this.respawnnow = false;
                     this.JoykeyMove();
                     this.Rigidbody.useGravity = true;
                     this.fallflag.applyRootMotion = false;
                 }
+                
+                //落ちているか
+                if (this.FallCheck())
+                {
+                   if(!this.respawnnow && !this.footflag)
+                   {
+                        chengeState = State.Fall;
+                   }
+                }
                 break;
             case State.Fall:
-                this.RespawnTimeCnt();
+                if(this.RespawnTimeCnt())
+                {
+                    chengeState = State.Res;
+                }
                 this.Rigidbody.useGravity = true;
                 this.fallflag.applyRootMotion = false;
+                this.fallflag.enabled = false;
                 break;
             case State.Res:
+                //座標リセット
+                this.respawnTime = 0;
                 this.ResetPos();
-                this.state = State.Normal;
+                this.fallflag.enabled = false;
+                this.respawnnow = false;
+                chengeState = State.Normal;
                 break;
             case State.Wall:
+                this.FallMove();
                 if (!this.hitWall.HitFlag())
                 {
                     this.rotationFlag = false;
                     this.fallflag.applyRootMotion = false;
-                    this.state = State.Normal;   
+                    chengeState = State.Normal;   
                 }
-                this.FallMove();
                 break;
         };
+        this.state = chengeState;
         Debug.Log(this.state);
     }
 
@@ -203,7 +240,6 @@ public class Movefeature : MonoBehaviour
 
     private Vector3 MoveDown()
     {
-
         if (this.state == State.Wall)
         {
             return new Vector3(0, -this.moveSpeed, 0);
@@ -228,24 +264,22 @@ public class Movefeature : MonoBehaviour
     private bool CheckRespawn()
     {
         //リスポーン条件を記載する
-        return this.respawnTime >= 2.0 ? true : false;
+        return this.respawnTime >= 2.0 && this.transform.position.y < 0 ? true : false;
     }
 
     /// <summary>
     /// リスポーンのタイムを計算します
     /// </summary>
-    private void RespawnTimeCnt()
+    private bool RespawnTimeCnt()
     {
-        if (this.respawnnow)
+        if (this.CheckRespawn())
         {
-            if (this.CheckRespawn())
-            {
-                this.respawnTime = 0;
-                this.respawnnow = false;
-                this.ChengePlayerState(State.Res);
-            }
-            this.respawnTime += Time.deltaTime;
+           this.respawnnow = true;
+           return true;
         }
+        this.respawnTime += Time.deltaTime;
+        Debug.Log(this.respawnTime);
+        return false;
     }
 
     /// <summary>
@@ -294,8 +328,7 @@ public class Movefeature : MonoBehaviour
         if (collision.gameObject.tag == "Goal")
         {
             this.clearCheck = true;
-        }
-        
+        } 
     }
     private void OnCollisionExit(Collision collision)
     {
@@ -307,7 +340,6 @@ public class Movefeature : MonoBehaviour
     /// </summary>
     private void ResetPos()
     {
-        this.respawnnow = true;
         this.gameObject.transform.position = this.respwonPos;
     }
 
@@ -475,6 +507,9 @@ public class Movefeature : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 壁を当たる際に回転をします
+    /// </summary>
     void Rotatewall()
     {
         switch (this.angle)

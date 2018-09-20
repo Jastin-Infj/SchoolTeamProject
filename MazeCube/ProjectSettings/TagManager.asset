@@ -8,6 +8,7 @@ TagManager:
   - Map
   - Ball
   - Wall
+  - Goal
   layers:
   - Default
   - TransparentFX

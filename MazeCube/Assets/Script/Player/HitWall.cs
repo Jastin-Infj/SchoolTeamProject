@@ -19,7 +19,7 @@ public class HitWall : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-       
+        Debug.Log("回転自体のパラメータ" + this.name + this.hitflag);
 	}
 
     private void OnCollisionStay(Collision collision)
@@ -28,23 +28,15 @@ public class HitWall : MonoBehaviour {
         {
             this.hitflag = true;
         }
-        
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if(collision.gameObject.tag == "Wall")
-        {
-            this.hitflag = false;
-        }
-        string cName = collision.gameObject.name;
-        if(cName.Substring(0,4) == "Cube")
-        {
-            Debug.Log("実装可能");
-        }
+        this.hitflag = false;
     }
     public  bool HitFlag()
     {
+        Debug.Log("返します" + this.name + this.hitflag);
         return this.hitflag;
     }
 }
